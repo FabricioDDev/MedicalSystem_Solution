@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace DomainModel
 {
-    internal class Query
+    public class Query
     {
+        public int Id { get; set; } 
+        public string Name { get; set; }
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
