@@ -18,7 +18,7 @@ namespace DataModel
             List<Admin> list = new List<Admin>();
             try
             {
-                data.Query("AdminList");
+                data.SP("AdminList");
                 data.Read();
                 while (data.PropReader.Read())
                 {
@@ -32,7 +32,6 @@ namespace DataModel
             }
             catch (Exception ex) { throw ex; }
             finally { data.Close(); }
-            
         }
     }
 }
