@@ -55,7 +55,7 @@ namespace DataModel
             finally { data.Close(); }
         }
     
-        public void MedicalUpdate(Medical medical)
+        public void MedicalUpdateSP(Medical medical)
         {
             try
             {
@@ -66,6 +66,17 @@ namespace DataModel
                 data.Parameters("@Email", medical.Email);
                 data.Parameters("@Dni", medical.Dni);
                 data.Parameters("@PatientList", medical.IdPatientsList.ToString());
+                data.Parameters("@Id", medical.Id);
+                data.Execute();
+            }
+            catch(Exception ex) { throw ex; }
+            finally { data.Close(); }
+        }
+        public void MedicalDeleteSP(Medical medical)
+        {
+            try
+            {
+                data.SP("MedicalDelete");
                 data.Parameters("@Id", medical.Id);
                 data.Execute();
             }
