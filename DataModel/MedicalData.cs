@@ -37,5 +37,24 @@ namespace DataModel
             catch (Exception ex) { throw ex; }
             finally { data.Close(); }
         }
+    
+        public void MedicalInsertSP(Medical medical)
+        {
+            try
+            {
+                data.SP("MedicalInsert");
+                data.Parameters("@FullName", medical.FullName);
+                data.Parameters("@UserName", medical.UserName);
+                data.Parameters("@Pass", medical.PropPassword);
+                data.Parameters("@Email", medical.Email);
+                data.Parameters("@Dni", medical.Dni);
+                data.Parameters("@PatientList", medical.IdPatientsList.ToString());
+                data.Execute();
+            }
+            catch (Exception ex) { throw ex; }
+            finally { data.Close(); }
+        }
+    
+    
     }
 }
