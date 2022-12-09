@@ -55,6 +55,22 @@ namespace DataModel
             finally { data.Close(); }
         }
     
-    
+        public void MedicalUpdate(Medical medical)
+        {
+            try
+            {
+                data.SP("MedicalUpdate");
+                data.Parameters("@FullName", medical.FullName);
+                data.Parameters("@UserName", medical.UserName);
+                data.Parameters("@Pass", medical.PropPassword);
+                data.Parameters("@Email", medical.Email);
+                data.Parameters("@Dni", medical.Dni);
+                data.Parameters("@PatientList", medical.IdPatientsList.ToString());
+                data.Parameters("@Id", medical.Id);
+                data.Execute();
+            }
+            catch(Exception ex) { throw ex; }
+            finally { data.Close(); }
+        }
     }
 }
