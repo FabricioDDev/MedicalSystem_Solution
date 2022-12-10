@@ -1,0 +1,6 @@
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DB\bin\Debug\DB.dll
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DB\bin\Debug\DB.pdb
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DB\obj\Debug\DB.csproj.AssemblyReference.cache
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DB\obj\Debug\DB.csproj.CoreCompileInputs.cache
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DB\obj\Debug\DB.dll
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DB\obj\Debug\DB.pdb

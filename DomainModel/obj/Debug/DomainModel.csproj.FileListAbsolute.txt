@@ -1,0 +1,6 @@
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DomainModel\bin\Debug\DomainModel.dll
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DomainModel\bin\Debug\DomainModel.pdb
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DomainModel\obj\Debug\DomainModel.csproj.AssemblyReference.cache
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DomainModel\obj\Debug\DomainModel.csproj.CoreCompileInputs.cache
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DomainModel\obj\Debug\DomainModel.dll
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DomainModel\obj\Debug\DomainModel.pdb
