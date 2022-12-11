@@ -15,7 +15,7 @@
             <asp:Label ID="LblPass" runat="server" Text="Pass"></asp:Label>
             <asp:TextBox ID="TxtPass" runat="server"></asp:TextBox>
             <asp:Button runat="server" OnClick="BtnGo_Click" ID="BtnGo" Text="Go" />
-            <asp:Button runat="server" ID="BtnClient" Text="As Client" />
+            <asp:Button runat="server" ID="BtnClient" Text="As Doctor" />
         </div>
     </form>
 </body>

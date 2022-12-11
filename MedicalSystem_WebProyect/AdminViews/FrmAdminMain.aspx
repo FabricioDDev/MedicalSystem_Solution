@@ -10,7 +10,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <h1>ingresaste</h1>
+            <asp:Button ID="BtnDoc" runat="server" Text="Doctors" />
+            <asp:Button ID="BtnPatient" runat="server" Text="Patients" />
+            <asp:Button ID="BtnExit" runat="server" Text="Exit" />
         </div>
     </form>
 </body>
