@@ -67,5 +67,22 @@ namespace DataModel
             catch (Exception ex) { throw ex; }
             finally { data.Close(); }
         }
+        public void AppointmentUpdateSP(Appointment appointment)
+        {
+            try
+            {
+                data.SP("AppointmentUpdate");
+                data.Parameters("@IdMedical", appointment.medical.Id);
+                data.Parameters("@IdPatient", appointment.patient.Id);
+                data.Parameters("@IdState", appointment.state.Id);
+                data.Parameters("@IdQuery", appointment.query.Id);
+                data.Parameters("@Time", appointment.Time);
+                data.Parameters("@AppointmentDate", appointment.date);
+                data.Parameters("@Id", appointment.Id);
+                data.Execute();
+            }
+            catch (Exception ex) { throw ex; }
+            finally { data.Close(); }
+        }
     }
 }
