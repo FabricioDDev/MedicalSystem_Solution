@@ -84,5 +84,17 @@ namespace DataModel
             catch (Exception ex) { throw ex; }
             finally { data.Close(); }
         }
+    
+        public void AppointmentDeleteSP(Appointment appointment)
+        {
+            try
+            {
+                data.SP("AppointmentDelete");
+                data.Parameters("@Id", appointment.Id);
+                data.Execute();
+            }
+            catch (Exception ex) { throw ex; }
+            finally { data.Close(); }
+        }
     }
 }
