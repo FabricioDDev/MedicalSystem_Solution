@@ -14,7 +14,7 @@
             <asp:TextBox ID="TxtEmail" runat="server"></asp:TextBox>
             <asp:Label ID="LblPass" runat="server" Text="Pass"></asp:Label>
             <asp:TextBox ID="TxtPass" runat="server"></asp:TextBox>
-            <asp:Button runat="server" ID="BtnGo" Text="Go" />
+            <asp:Button runat="server" OnClick="BtnGo_Click" ID="BtnGo" Text="Go" />
             <asp:Button runat="server" ID="BtnClient" Text="As Client" />
         </div>
     </form>

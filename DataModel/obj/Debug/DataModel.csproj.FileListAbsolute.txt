@@ -1,2 +1,11 @@
 C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DataModel\obj\Debug\DataModel.csproj.AssemblyReference.cache
 C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DataModel\obj\Debug\DataModel.csproj.CoreCompileInputs.cache
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DataModel\bin\Debug\DataModel.dll
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DataModel\bin\Debug\DataModel.pdb
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DataModel\bin\Debug\DB.dll
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DataModel\bin\Debug\DomainModel.dll
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DataModel\bin\Debug\DB.pdb
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DataModel\bin\Debug\DomainModel.pdb
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DataModel\obj\Debug\DataModel.csproj.CopyComplete
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DataModel\obj\Debug\DataModel.dll
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\DataModel\obj\Debug\DataModel.pdb

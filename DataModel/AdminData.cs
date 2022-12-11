@@ -18,7 +18,7 @@ namespace DataModel
             List<Admin> list = new List<Admin>();
             try
             {
-                data.SP("AdminList");
+                data.SP("ListAdm");
                 data.Read();
                 while (data.PropReader.Read())
                 {

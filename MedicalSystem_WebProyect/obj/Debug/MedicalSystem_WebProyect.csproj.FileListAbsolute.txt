@@ -57,3 +57,9 @@ C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\Medical
 C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\MedicalSystem_WebProyect\obj\Debug\MedicalSystem_WebProyect.csproj.CopyComplete
 C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\MedicalSystem_WebProyect\obj\Debug\MedicalSystem_WebProyect.dll
 C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\MedicalSystem_WebProyect\obj\Debug\MedicalSystem_WebProyect.pdb
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\MedicalSystem_WebProyect\bin\DataModel.dll
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\MedicalSystem_WebProyect\bin\DomainModel.dll
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\MedicalSystem_WebProyect\bin\DB.dll
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\MedicalSystem_WebProyect\bin\DataModel.pdb
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\MedicalSystem_WebProyect\bin\DomainModel.pdb
+C:\Users\miaqu\OneDrive\Escritorio\Fabri\Proyects\MedicalSystem_Solution\MedicalSystem_WebProyect\bin\DB.pdb
