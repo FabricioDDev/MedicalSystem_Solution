@@ -32,5 +32,6 @@ namespace DataModel
             catch (Exception ex) { throw ex; }
             finally { data.Close(); }
         }
+    
     }
 }
