@@ -67,10 +67,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminViews\FrmAdminLogin.aspx" />
+    <Content Include="AdminViews\FrmAdminMain.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminViews\FrmAdminLogin.aspx.cs">
+      <DependentUpon>FrmAdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminViews\FrmAdminLogin.aspx.designer.cs">
+      <DependentUpon>FrmAdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminViews\FrmAdminMain.aspx.cs">
+      <DependentUpon>FrmAdminMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminViews\FrmAdminMain.aspx.designer.cs">
+      <DependentUpon>FrmAdminMain.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -87,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ClientViews\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
