@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="AdminViews\FrmAdminLogin.aspx" />
     <Content Include="AdminViews\FrmAdminMain.aspx" />
+    <Content Include="AdminViews\FrmGridView.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -86,6 +87,13 @@
     </Compile>
     <Compile Include="AdminViews\FrmAdminMain.aspx.designer.cs">
       <DependentUpon>FrmAdminMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminViews\FrmGridView.aspx.cs">
+      <DependentUpon>FrmGridView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminViews\FrmGridView.aspx.designer.cs">
+      <DependentUpon>FrmGridView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -10,8 +10,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Button ID="BtnDoc" runat="server" Text="Doctors" />
-            <asp:Button ID="BtnPatient" runat="server" Text="Patients" />
+            <asp:Button ID="BtnDoc" OnClick="BtnDoc_Click" runat="server" Text="Doctors" />
+            <asp:Button ID="BtnPatient" OnClick="BtnPatient_Click" runat="server" Text="Patients" />
             <asp:Button ID="BtnExit" runat="server" Text="Exit" />
         </div>
     </form>

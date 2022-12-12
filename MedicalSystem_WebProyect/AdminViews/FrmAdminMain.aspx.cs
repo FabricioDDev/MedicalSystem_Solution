@@ -11,7 +11,16 @@ namespace MedicalSystem_WebProyect.AdminViews
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+        }
 
+        protected void BtnDoc_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmGridView.aspx?content=" + 1);
+        }
+
+        protected void BtnPatient_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmGridView.aspx?content=" + 2);
         }
     }
 }
