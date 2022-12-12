@@ -20,5 +20,6 @@ namespace DomainModel
         }
         public string Dni { get; set; }
         public List<int> IdPatientsList { get;set; }
+       
     }
 }

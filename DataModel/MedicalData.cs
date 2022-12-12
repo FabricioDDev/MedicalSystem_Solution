@@ -29,7 +29,13 @@ namespace DataModel
                     aux.PropPassword = (string)data.PropReader["Pass"];
                     aux.Email = (string)data.PropReader["Email"];
                     aux.Dni = (string)data.PropReader["Dni"];
-                    aux.IdPatientsList = (List<int>)data.PropReader["PatientList"];
+                    string patients = (string)data.PropReader["PatientList"];
+                    List<string> PatientList = patients.Split(',').ToList();
+                    aux.IdPatientsList = new List<int>();
+                    foreach (string Patient in PatientList)
+                    {
+                        aux.IdPatientsList.Add(int.Parse(Patient));
+                    }
                     List.Add(aux);
                 }
                 return List;
