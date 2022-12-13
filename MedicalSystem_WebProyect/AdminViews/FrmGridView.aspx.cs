@@ -23,11 +23,13 @@ namespace MedicalSystem_WebProyect.AdminViews
             {
                 MedicalData medicalData = new MedicalData();
                 GvData.DataSource = medicalData.ListSP();
+                LblTitle.Text = "Doctors";
             }
             else if (Content == 2)
             {
                 PatientData patientData = new PatientData();
                 GvData.DataSource = patientData.PatientListSP();
+                LblTitle.Text = "Patients";
             }
             GvData.DataBind();
         }

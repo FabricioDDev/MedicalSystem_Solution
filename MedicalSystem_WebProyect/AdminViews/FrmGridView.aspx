@@ -20,6 +20,7 @@
             <!--agregar-->
             <asp:Button ID="BtnAdd" runat="server" Text="Button" />
             <!--grilla-->
+            <asp:Label ID="LblTitle" runat="server" Text=""></asp:Label>
             <asp:GridView ID="GvData" runat="server" OnSelectedIndexChanged="GvData_SelectedIndexChanged" AutoGenerateColumns="false">
                 <Columns>
                     <asp:BoundField DataField="FullName" />
