@@ -10,14 +10,15 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <!--btnExit-->
+            <asp:Button ID="BtnExit" runat="server" OnClick="BtnExit_Click" Text="Exit" />
             <!--Buscador rapido-->
             <asp:TextBox ID="TxtFastFilter" OnTextChanged="TxtFastFilter_TextChanged" AutoPostBack="true" runat="server"></asp:TextBox>
-            
             <!--agregar-->
             <asp:Button ID="BtnAdd" runat="server" Text="Button" />
             <!--grilla-->
             <asp:Label ID="LblTitle" runat="server" Text=""></asp:Label>
-            <asp:GridView ID="GvData" runat="server" OnSelectedIndexChanged="GvData_SelectedIndexChanged" AutoGenerateColumns="false">
+            <asp:GridView ID="GvData" runat="server" DataKeyNames="Id" OnSelectedIndexChanged="GvData_SelectedIndexChanged" AutoGenerateColumns="false">
                 <Columns>
                     <asp:BoundField DataField="FullName" />
                     <asp:BoundField DataField="Dni" />

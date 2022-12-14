@@ -47,7 +47,8 @@ namespace MedicalSystem_WebProyect.AdminViews
 
         protected void GvData_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            var Id = GvData.SelectedDataKey.Value.ToString();
+            Response.Redirect("FrmRegisterFromAdmin.aspx?Id=" + Id + "&&content=" + Content);
         }
 
         protected void TxtFastFilter_TextChanged(object sender, EventArgs e)
@@ -68,6 +69,11 @@ namespace MedicalSystem_WebProyect.AdminViews
                 PatientData patientData = new PatientData();
                 GV_Charge(helper.FastFilter(TxtFastFilter.Text, patientData.PatientListSP()));
             }
+        }
+
+        protected void BtnExit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmAdminMain.aspx", false);
         }
     }
 }
