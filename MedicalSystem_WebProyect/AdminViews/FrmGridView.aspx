@@ -15,7 +15,7 @@
             <!--Buscador rapido-->
             <asp:TextBox ID="TxtFastFilter" OnTextChanged="TxtFastFilter_TextChanged" AutoPostBack="true" runat="server"></asp:TextBox>
             <!--agregar-->
-            <asp:Button ID="BtnAdd" runat="server" Text="Button" />
+            <asp:Button ID="BtnAdd" runat="server" Text="Add" OnClick="BtnAdd_Click" />
             <!--grilla-->
             <asp:Label ID="LblTitle" runat="server" Text=""></asp:Label>
             <asp:GridView ID="GvData" runat="server" DataKeyNames="Id" OnSelectedIndexChanged="GvData_SelectedIndexChanged" AutoGenerateColumns="false">

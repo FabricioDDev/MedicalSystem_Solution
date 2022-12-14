@@ -75,5 +75,10 @@ namespace MedicalSystem_WebProyect.AdminViews
         {
             Response.Redirect("FrmAdminMain.aspx", false);
         }
+
+        protected void BtnAdd_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmRegisterFromAdmin.aspx?content=" + Content);
+        }
     }
 }
