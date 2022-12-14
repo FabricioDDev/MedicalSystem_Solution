@@ -43,7 +43,7 @@ namespace DataModel
             catch (Exception ex) { throw ex; }
             finally { data.Close(); }
         }
-    
+        //podria hacer una funcion, q use una lambda para buscar con el criterio pasado por parametro
         public void MedicalInsertSP(Medical medical)
         {
             try

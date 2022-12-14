@@ -11,7 +11,8 @@
     <form id="form1" runat="server">
         <div>
             <!--Buscador rapido-->
-            <asp:TextBox ID="TxtFastFilter" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TxtFastFilter" OnTextChanged="TxtFastFilter_TextChanged" AutoPostBack="true" runat="server"></asp:TextBox>
+            
             <!--buscador avanzado-->
             <asp:CheckBox ID="CbxAdvFilter" runat="server" />
             <asp:DropDownList ID="DdlCamp" runat="server"></asp:DropDownList>

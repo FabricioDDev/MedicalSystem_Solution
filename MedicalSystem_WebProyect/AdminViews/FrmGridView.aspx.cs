@@ -34,9 +34,28 @@ namespace MedicalSystem_WebProyect.AdminViews
             GvData.DataBind();
         }
 
+
         protected void GvData_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+        }
 
+        protected void TxtFastFilter_TextChanged(object sender, EventArgs e)
+        {
+            Helper helper = new Helper();
+
+            if (Content == 1)
+            {
+                MedicalData medicalData = new MedicalData();
+                GvData.DataSource = helper.FastFilter(TxtFastFilter.Text, medicalData.ListSP());
+                GvData.DataBind();
+            }
+            else
+            {
+                PatientData patientData = new PatientData();
+                GvData.DataSource = helper.FastFilter(TxtFastFilter.Text, patientData.PatientListSP());
+                GvData.DataBind();
+            }
         }
     }
 }
