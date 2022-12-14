@@ -33,6 +33,16 @@ namespace MedicalSystem_WebProyect.AdminViews
             }
             GvData.DataBind();
         }
+        private void GV_Charge(List<Medical>List)
+        {
+            GvData.DataSource = List;
+            GvData.DataBind();
+        }
+        private void GV_Charge(List<Patient> List)
+        {
+            GvData.DataSource = List;
+            GvData.DataBind();
+        }
 
 
         protected void GvData_SelectedIndexChanged(object sender, EventArgs e)
@@ -42,19 +52,21 @@ namespace MedicalSystem_WebProyect.AdminViews
 
         protected void TxtFastFilter_TextChanged(object sender, EventArgs e)
         {
+            FastFilter();
+        }
+        private void FastFilter()
+        {
             Helper helper = new Helper();
 
             if (Content == 1)
             {
                 MedicalData medicalData = new MedicalData();
-                GvData.DataSource = helper.FastFilter(TxtFastFilter.Text, medicalData.ListSP());
-                GvData.DataBind();
+                GV_Charge(helper.FastFilter(TxtFastFilter.Text, medicalData.ListSP()));
             }
             else
             {
                 PatientData patientData = new PatientData();
-                GvData.DataSource = helper.FastFilter(TxtFastFilter.Text, patientData.PatientListSP());
-                GvData.DataBind();
+                GV_Charge(helper.FastFilter(TxtFastFilter.Text, patientData.PatientListSP()));
             }
         }
     }
