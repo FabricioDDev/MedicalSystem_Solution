@@ -13,11 +13,6 @@
             <!--Buscador rapido-->
             <asp:TextBox ID="TxtFastFilter" OnTextChanged="TxtFastFilter_TextChanged" AutoPostBack="true" runat="server"></asp:TextBox>
             
-            <!--buscador avanzado-->
-            <asp:CheckBox ID="CbxAdvFilter" runat="server" />
-            <asp:DropDownList ID="DdlCamp" runat="server"></asp:DropDownList>
-            <asp:DropDownList ID="DdlCriterion" runat="server"></asp:DropDownList>
-            <asp:Button ID="BtnExecuteAdvFilter" runat="server" Text="Button" />
             <!--agregar-->
             <asp:Button ID="BtnAdd" runat="server" Text="Button" />
             <!--grilla-->

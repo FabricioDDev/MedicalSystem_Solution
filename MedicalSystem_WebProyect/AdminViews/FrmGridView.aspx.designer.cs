@@ -33,42 +33,6 @@ namespace MedicalSystem_WebProyect.AdminViews
         protected global::System.Web.UI.WebControls.TextBox TxtFastFilter;
 
         /// <summary>
-        /// Control CbxAdvFilter.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CbxAdvFilter;
-
-        /// <summary>
-        /// Control DdlCamp.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlCamp;
-
-        /// <summary>
-        /// Control DdlCriterion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlCriterion;
-
-        /// <summary>
-        /// Control BtnExecuteAdvFilter.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnExecuteAdvFilter;
-
-        /// <summary>
         /// Control BtnAdd.
         /// </summary>
         /// <remarks>
