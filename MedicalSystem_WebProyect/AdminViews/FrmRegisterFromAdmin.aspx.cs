@@ -13,23 +13,27 @@ namespace MedicalSystem_WebProyect.AdminViews
         protected void Page_Load(object sender, EventArgs e)
         {
             Content = Request.QueryString["content"] != null ? int.Parse(Request.QueryString["content"]) : 0;
-            if(Content == 1)
+            OcultControlls();
+        }
+        public void OcultControlls()
+        {
+            if (Content == 1)
             {
                 LblYears.Visible = false;
-                TxtYears.Visible= false;
-                LblMedicalPlan.Visible=false;
-                TxtMedicalPlan.Visible= false;
-                LblPhoneNumber.Visible=false;
-                TxtPhoneNumber.Visible= false;
-                LblAddress.Visible=false;
-                TxtAddress.Visible= false;
-               
+                TxtYears.Visible = false;
+                LblMedicalPlan.Visible = false;
+                TxtMedicalPlan.Visible = false;
+                LblPhoneNumber.Visible = false;
+                TxtPhoneNumber.Visible = false;
+                LblAddress.Visible = false;
+                TxtAddress.Visible = false;
+
             }
-            else if(Content == 2)
+            else if (Content == 2)
             {
                 LblUserName.Visible = false;
-                TxtUserName.Visible= false;
-                LblPass.Visible=false;
+                TxtUserName.Visible = false;
+                LblPass.Visible = false;
                 TxtPass.Visible = false;
             }
         }
