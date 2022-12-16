@@ -80,5 +80,20 @@ namespace MedicalSystem_WebProyect.AdminViews
         {
             Response.Redirect("FrmRegisterFromAdmin.aspx?content=" + Content);
         }
+
+        protected void GvData_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int Id = int.Parse(GvData.DataKeys[e.RowIndex].Value.ToString());
+            if (Content == 1)
+            {
+                MedicalData medicalData = new MedicalData();
+                medicalData.MedicalDeleteSP(Id);
+            }
+            else
+            {
+                PatientData patientData = new PatientData();
+                patientData.PatientDelete(Id);
+            }
+        }
     }
 }

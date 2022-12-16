@@ -69,12 +69,12 @@ namespace DataModel
             catch(Exception ex) { throw ex; }
             finally { data.Close(); }
         }
-        public void MedicalDeleteSP(Medical medical)
+        public void MedicalDeleteSP(int Id)
         {
             try
             {
                 data.SP("MedicalDelete");
-                data.Parameters("@Id", medical.Id);
+                data.Parameters("@Id", Id);
                 data.Execute();
             }
             catch(Exception ex) { throw ex; }

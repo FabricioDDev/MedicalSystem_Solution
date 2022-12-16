@@ -18,11 +18,12 @@
             <asp:Button ID="BtnAdd" runat="server" Text="Add" OnClick="BtnAdd_Click" />
             <!--grilla-->
             <asp:Label ID="LblTitle" runat="server" Text=""></asp:Label>
-            <asp:GridView ID="GvData" runat="server" DataKeyNames="Id" OnSelectedIndexChanged="GvData_SelectedIndexChanged" AutoGenerateColumns="false">
+            <asp:GridView ID="GvData" runat="server" DataKeyNames="Id" OnRowDeleting="GvData_RowDeleting" OnSelectedIndexChanged="GvData_SelectedIndexChanged" AutoGenerateColumns="false">
                 <Columns>
                     <asp:BoundField DataField="FullName" />
                     <asp:BoundField DataField="Dni" />
                     <asp:CommandField ShowSelectButton="true" />
+                    <asp:CommandField ShowDeleteButton="true" />
                 </Columns>
             </asp:GridView>
         </div>

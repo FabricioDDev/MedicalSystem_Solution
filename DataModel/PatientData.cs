@@ -73,12 +73,12 @@ namespace DataModel
             catch(Exception ex) { throw ex; }
             finally { data.Close(); }
         }
-        public void PatientDelete(Patient patient)
+        public void PatientDelete(int Id)
         {
             try
             {
                 data.SP("PatientDelete");
-                data.Parameters("@Id", patient.Id);
+                data.Parameters("@Id", Id);
                 data.Execute();
             }
             catch(Exception ex) { throw ex; }
