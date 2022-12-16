@@ -42,7 +42,7 @@
             <asp:Label ID="LblAddress" runat="server" Text="Address"></asp:Label>
             <asp:TextBox ID="TxtAddress" runat="server"></asp:TextBox>
 
-            <asp:Button ID="BtnAdd" runat="server" Text="Add" />
+            <asp:Button ID="BtnAdd" OnClick="BtnAdd_Click" runat="server" Text="Add" />
             <asp:Button ID="BtnCancel" runat="server" Text="Cancel" />
         </div>
     </form>

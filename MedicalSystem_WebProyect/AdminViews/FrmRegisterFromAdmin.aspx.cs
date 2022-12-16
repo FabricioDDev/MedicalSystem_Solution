@@ -16,10 +16,14 @@ namespace MedicalSystem_WebProyect.AdminViews
         {
             Content = Request.QueryString["content"] != null ? int.Parse(Request.QueryString["content"]) : 0;
             OcultControlls();
-            if (Request.QueryString["Id"] != null)
+            
+            if (!IsPostBack)
             {
-                LblTitle.Text = "Update";
-                ChargeControlls();
+                if (Request.QueryString["Id"] != null)
+                {
+                    LblTitle.Text = "Update";
+                    ChargeControlls();
+                }
             }
         }
         public void ChargeControlls()
@@ -70,6 +74,51 @@ namespace MedicalSystem_WebProyect.AdminViews
                 LblPass.Visible = false;
                 TxtPass.Visible = false;
             }
+        }
+
+        protected void BtnAdd_Click(object sender, EventArgs e)
+        {
+            MedicalData medicalData = new MedicalData();
+            Medical medical = new Medical();
+            Patient patient = new Patient();
+            PatientData patientData= new PatientData();
+            if(Content == 1){
+                medical.FullName = TxtFullName.Text;
+                medical.Email = TxtEmail.Text;
+                medical.UserName = TxtUserName.Text;
+                medical.PropPassword = TxtPass.Text;
+                medical.Dni = TxtDni.Text;
+            }
+            else if(Content== 2)
+            {
+                patient.FullName = TxtFullName.Text;
+                patient.Email= TxtEmail.Text;
+                patient.Dni = TxtDni.Text;
+                patient.Address = TxtAddress.Text;
+                patient.years= TxtYears.Text;
+                patient.MedicalPlan= TxtMedicalPlan.Text;
+                patient.PhoneNumber= TxtPhoneNumber.Text;
+            }
+            if (Request.QueryString["Id"] != null)
+            {
+                if (Content == 1)
+                {
+                    medical.Id = int.Parse(TxtId.Text);
+                    medicalData.MedicalUpdateSP(medical);
+                } 
+                else if(Content == 2)
+                {
+                    patient.Id = int.Parse(TxtId.Text);
+                    patientData.PatientUpdateSP(patient);
+                }
+            }
+            else
+            {
+                if (Content == 1) medicalData.MedicalInsertSP(medical);
+                else if (Content == 2) patientData.PatientInsertSP(patient);
+            }
+            
+            Response.Redirect("FrmGridView.aspx?content=" + Content);
         }
     }
 }

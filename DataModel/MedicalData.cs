@@ -29,13 +29,6 @@ namespace DataModel
                     aux.PropPassword = (string)data.PropReader["Pass"];
                     aux.Email = (string)data.PropReader["Email"];
                     aux.Dni = (string)data.PropReader["Dni"];
-                    string patients = (string)data.PropReader["PatientList"];
-                    List<string> PatientList = patients.Split(',').ToList();
-                    aux.IdPatientsList = new List<int>();
-                    foreach (string Patient in PatientList)
-                    {
-                        aux.IdPatientsList.Add(int.Parse(Patient));
-                    }
                     List.Add(aux);
                 }
                 return List;
@@ -48,13 +41,12 @@ namespace DataModel
         {
             try
             {
-                data.SP("MedicalInsert");
+                data.SP("MedicalInsertSP");
                 data.Parameters("@FullName", medical.FullName);
                 data.Parameters("@UserName", medical.UserName);
                 data.Parameters("@Pass", medical.PropPassword);
                 data.Parameters("@Email", medical.Email);
                 data.Parameters("@Dni", medical.Dni);
-                data.Parameters("@PatientList", medical.IdPatientsList.ToString());
                 data.Execute();
             }
             catch (Exception ex) { throw ex; }
@@ -71,7 +63,6 @@ namespace DataModel
                 data.Parameters("@Pass", medical.PropPassword);
                 data.Parameters("@Email", medical.Email);
                 data.Parameters("@Dni", medical.Dni);
-                data.Parameters("@PatientList", medical.IdPatientsList.ToString());
                 data.Parameters("@Id", medical.Id);
                 data.Execute();
             }

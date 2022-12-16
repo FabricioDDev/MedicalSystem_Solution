@@ -46,7 +46,7 @@ namespace DataModel
                 data.Parameters("@FullName", patient.FullName);
                 data.Parameters("@Email", patient.Email);
                 data.Parameters("@Dni", patient.Dni);
-                data.Parameters("@Years", patient.years);
+                data.Parameters("@Year", patient.years);
                 data.Parameters("@MedicalPlan", patient.MedicalPlan);
                 data.Parameters("@PhoneNumber", patient.PhoneNumber);
                 data.Parameters("@Address", patient.Address);
@@ -63,7 +63,7 @@ namespace DataModel
                 data.Parameters("@FullName", patient.FullName);
                 data.Parameters("@Email", patient.Email);
                 data.Parameters("@Dni", patient.Dni);
-                data.Parameters("@Years", patient.years);
+                data.Parameters("@Year", patient.years);
                 data.Parameters("@MedicalPlan", patient.MedicalPlan);
                 data.Parameters("@PhoneNumber", patient.PhoneNumber);
                 data.Parameters("@Address", patient.Address);
