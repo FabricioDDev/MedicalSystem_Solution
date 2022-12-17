@@ -18,14 +18,17 @@ namespace MedicalSystem_WebProyect.AdminViews
 
         protected void BtnGo_Click(object sender, EventArgs e)
         {
+            AdminUserValidation();
+        }
+        private void AdminUserValidation()
+        {
             AdminData adminData = new AdminData();
-            Admin admin = adminData.ListSP().Find(x => x.Email == TxtEmail.Text && x.PropPassword == TxtPass.Text);
-            if (admin != null)
+            Func<string, string, Admin, bool> GetAdm = (Email, Pass, adm) => adm.Email == Email && adm.PropPassword == Pass;
+            foreach (Admin admin in adminData.ListSP())
             {
-                Session.Add("AdminUser", admin);
-                Response.Redirect("FrmAdminMain.aspx", false);
+                if (!GetAdm(TxtEmail.Text, TxtPass.Text, admin)) TxtEmail.Text = "Vuelva a intentarlo";
+                else Response.Redirect("FrmAdminMain.aspx", false);
             }
-            else { TxtEmail.Text = "Vuelva a intentarlo"; }
         }
     }
 }

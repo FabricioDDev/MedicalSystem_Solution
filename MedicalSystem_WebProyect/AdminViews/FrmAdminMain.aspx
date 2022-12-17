@@ -12,7 +12,7 @@
         <div>
             <asp:Button ID="BtnDoc" OnClick="BtnDoc_Click" runat="server" Text="Doctors" />
             <asp:Button ID="BtnPatient" OnClick="BtnPatient_Click" runat="server" Text="Patients" />
-            <asp:Button ID="BtnExit" runat="server" Text="Exit" />
+            <asp:Button ID="BtnExit" OnClick="BtnExit_Click" runat="server" Text="Exit" />
         </div>
     </form>
 </body>

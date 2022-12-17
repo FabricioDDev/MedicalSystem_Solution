@@ -22,5 +22,10 @@ namespace MedicalSystem_WebProyect.AdminViews
         {
             Response.Redirect("FrmGridView.aspx?content=" + 2);
         }
+
+        protected void BtnExit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmAdminLogin.aspx");
+        }
     }
 }

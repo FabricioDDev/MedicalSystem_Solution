@@ -12,8 +12,8 @@
         <div>
             <asp:Label ID="LblEmail" runat="server" Text="Email"></asp:Label>
             <asp:TextBox ID="TxtEmail" runat="server"></asp:TextBox>
-            <asp:Label ID="LblPass" runat="server" Text="Pass"></asp:Label>
-            <asp:TextBox ID="TxtPass" runat="server"></asp:TextBox>
+            <asp:Label ID="LblPass"  runat="server" Text="Pass"></asp:Label>
+            <asp:TextBox ID="TxtPass" TextMode="Password" runat="server"></asp:TextBox>
             <asp:Button runat="server" OnClick="BtnGo_Click" ID="BtnGo" Text="Go" />
             <asp:Button runat="server" ID="BtnClient" Text="As Doctor" />
         </div>
