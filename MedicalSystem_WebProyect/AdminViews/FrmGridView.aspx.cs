@@ -12,22 +12,28 @@ namespace MedicalSystem_WebProyect.AdminViews
     public partial class FrmGridView : System.Web.UI.Page
     {
         private int Content = 0;
+        private MedicalData medicalData;
+        private PatientData patientData;
         protected void Page_Load(object sender, EventArgs e)
         {
             Content = Request.QueryString["content"] != null ? int.Parse(Request.QueryString["content"]) : 0;
             GV_Charge();
+            Data();
+        }
+        private void Data()
+        {
+            if(Content == 1) medicalData= new MedicalData();
+            else patientData= new PatientData();
         }
         private void GV_Charge()
         {
             if (Content == 1)
             {
-                MedicalData medicalData = new MedicalData();
                 GvData.DataSource = medicalData.ListSP();
                 LblTitle.Text = "Doctors";
             }
             else if (Content == 2)
             {
-                PatientData patientData = new PatientData();
                 GvData.DataSource = patientData.PatientListSP();
                 LblTitle.Text = "Patients";
             }
@@ -58,17 +64,8 @@ namespace MedicalSystem_WebProyect.AdminViews
         private void FastFilter()
         {
             Helper helper = new Helper();
-
-            if (Content == 1)
-            {
-                MedicalData medicalData = new MedicalData();
-                GV_Charge(helper.FastFilter(TxtFastFilter.Text, medicalData.ListSP()));
-            }
-            else
-            {
-                PatientData patientData = new PatientData();
-                GV_Charge(helper.FastFilter(TxtFastFilter.Text, patientData.PatientListSP()));
-            }
+            if (Content == 1) GV_Charge(helper.FastFilter(TxtFastFilter.Text, medicalData.ListSP()));
+            else GV_Charge(helper.FastFilter(TxtFastFilter.Text, patientData.PatientListSP()));
         }
 
         protected void BtnExit_Click(object sender, EventArgs e)
@@ -84,16 +81,8 @@ namespace MedicalSystem_WebProyect.AdminViews
         protected void GvData_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int Id = int.Parse(GvData.DataKeys[e.RowIndex].Value.ToString());
-            if (Content == 1)
-            {
-                MedicalData medicalData = new MedicalData();
-                medicalData.MedicalDeleteSP(Id);
-            }
-            else
-            {
-                PatientData patientData = new PatientData();
-                patientData.PatientDelete(Id);
-            }
+            if (Content == 1) medicalData.MedicalDeleteSP(Id);
+            else patientData.PatientDelete(Id);
         }
     }
 }
