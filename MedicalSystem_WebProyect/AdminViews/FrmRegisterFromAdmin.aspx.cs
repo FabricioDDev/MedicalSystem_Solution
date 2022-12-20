@@ -12,25 +12,28 @@ namespace MedicalSystem_WebProyect.AdminViews
     public partial class FrmRegisterFromAdmin : System.Web.UI.Page
     {
         private int Content;
+        private MedicalData medicalData;
+        private PatientData patientData;
+        private void Data()
+        {
+            medicalData = new MedicalData();
+            patientData = new PatientData();
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             Content = Request.QueryString["content"] != null ? int.Parse(Request.QueryString["content"]) : 0;
             OcultControlls();
-            
-            if (!IsPostBack)
+            Data();
+            if (!IsPostBack && Request.QueryString["Id"] != null)
             {
-                if (Request.QueryString["Id"] != null)
-                {
                     LblTitle.Text = "Update";
                     ChargeControlls();
-                }
             }
         }
         public void ChargeControlls()
         {
             if (Content == 1)
             {
-                MedicalData medicalData = new MedicalData();
                 Medical Obj = medicalData.ListSP().Find(x => x.Id == int.Parse(Request.QueryString["Id"]));
                 TxtId.Text = Obj.Id.ToString();
                 TxtFullName.Text = Obj.FullName;
@@ -41,7 +44,6 @@ namespace MedicalSystem_WebProyect.AdminViews
             }
             else if (Content == 2)
             {
-                PatientData patientData = new PatientData();
                 Patient Obj = patientData.PatientListSP().Find(x => x.Id == int.Parse(Request.QueryString["Id"]));
                 TxtId.Text = Obj.Id.ToString();
                 TxtFullName.Text = Obj.FullName;
@@ -78,10 +80,8 @@ namespace MedicalSystem_WebProyect.AdminViews
 
         protected void BtnAdd_Click(object sender, EventArgs e)
         {
-            MedicalData medicalData = new MedicalData();
             Medical medical = new Medical();
             Patient patient = new Patient();
-            PatientData patientData= new PatientData();
             if(Content == 1){
                 medical.FullName = TxtFullName.Text;
                 medical.Email = TxtEmail.Text;
