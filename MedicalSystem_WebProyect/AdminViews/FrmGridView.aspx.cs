@@ -17,8 +17,8 @@ namespace MedicalSystem_WebProyect.AdminViews
         protected void Page_Load(object sender, EventArgs e)
         {
             Content = Request.QueryString["content"] != null ? int.Parse(Request.QueryString["content"]) : 0;
-            GV_Charge();
             Data();
+            GV_Charge();
         }
         private void Data()
         {
