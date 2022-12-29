@@ -19,16 +19,24 @@ namespace DomainModel
             return Result;
         }
 
-        public Medical ValidateUser(string User, string pass, List<Medical>List)
+        public int ValidateUser(string User, string pass, List<Medical>List)
         {
-            Medical user = List.Find
-            (x => x.Email == User || x.UserName == User && x.PropPassword == pass);
-            return user;
+            try
+            {
+                Medical user = List.Find
+                (x => x.Email == User || x.UserName == User && x.PropPassword == pass);
+                return user != null ? user.Id : 0;
+            }
+            catch(Exception ex) { throw ex; }
         }
         public Medical SearchUser(int Id, List<Medical> List)
         {
-            Medical user = List.Find(x => x.Id == Id);
-            return user;
+            try
+            {
+                Medical user = List.Find(x => x.Id == Id);
+                return user;
+            }
+            catch(Exception ex) { throw ex; }
         }
     }
 }

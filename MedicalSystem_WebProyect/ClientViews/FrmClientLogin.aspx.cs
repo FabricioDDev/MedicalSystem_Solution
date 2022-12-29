@@ -18,6 +18,15 @@ namespace MedicalSystem_WebProyect.ClientViews
 
         protected void BtnGo_Click(object sender, EventArgs e)
         {
+            Helper helper = new Helper();
+            MedicalData medicalData = new MedicalData();
+            try
+            {
+                int Id = helper.ValidateUser(TxtEmail_User.Text, TxtPassword.Text, medicalData.List());
+                if (Id != 0) { Session.Add("IdUser", Id); Response.Redirect("FrmClientMain.aspx"); }
+                else TxtEmail_User.Text = "Vuelva a intentarlo";
+            }
+            catch(Exception ex) { throw ex; }
         }
     }
 }
