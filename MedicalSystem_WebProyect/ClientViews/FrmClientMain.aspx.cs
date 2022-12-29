@@ -14,9 +14,5 @@ namespace MedicalSystem_WebProyect.ClientViews
 
         }
 
-        protected void BtnGo_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

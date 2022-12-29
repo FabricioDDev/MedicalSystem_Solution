@@ -10,7 +10,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:Label ID="LblEmail_User" runat="server" Text="Email/UserName"></asp:Label>
+            <asp:TextBox ID="TxtEmail_User" runat="server"></asp:TextBox>
+            <asp:Label ID="LblPass" runat="server" Text="Password"></asp:Label>
             <asp:TextBox ID="TxtPassword" TextMode="Password" runat="server"></asp:TextBox>
             <asp:Button ID="BtnGo" OnClick="BtnGo_Click" runat="server" Text="Go" />
             <asp:Label ID="LblSupport" runat="server" Text="If you Lost your Account, Comunicate with the support."></asp:Label>

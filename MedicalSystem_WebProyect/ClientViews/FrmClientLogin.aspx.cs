@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DataModel;
+using DomainModel;
 
 namespace MedicalSystem_WebProyect.ClientViews
 {
@@ -12,6 +14,10 @@ namespace MedicalSystem_WebProyect.ClientViews
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void BtnGo_Click(object sender, EventArgs e)
+        {
         }
     }
 }
