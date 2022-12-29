@@ -34,7 +34,7 @@ namespace MedicalSystem_WebProyect.AdminViews
         {
             if (Content == 1)
             {
-                Medical Obj = medicalData.ListSP().Find(x => x.Id == int.Parse(Request.QueryString["Id"]));
+                Medical Obj = medicalData.List().Find(x => x.Id == int.Parse(Request.QueryString["Id"]));
                 TxtId.Text = Obj.Id.ToString();
                 TxtFullName.Text = Obj.FullName;
                 TxtEmail.Text = Obj.Email;
@@ -44,7 +44,7 @@ namespace MedicalSystem_WebProyect.AdminViews
             }
             else if (Content == 2)
             {
-                Patient Obj = patientData.PatientListSP().Find(x => x.Id == int.Parse(Request.QueryString["Id"]));
+                Patient Obj = patientData.PatientList().Find(x => x.Id == int.Parse(Request.QueryString["Id"]));
                 TxtId.Text = Obj.Id.ToString();
                 TxtFullName.Text = Obj.FullName;
                 TxtDni.Text = Obj.Dni;

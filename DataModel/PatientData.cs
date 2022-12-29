@@ -13,12 +13,12 @@ namespace DataModel
         public PatientData() { data = new DataAccess(); }
         private DataAccess data;
 
-        public List<Patient> PatientListSP()
+        public List<Patient> PatientList()
         {
             List<Patient> List = new List<Patient>();
             try
             {
-                data.SP("PatientList");
+                data.Query("select Id, FullName, Email, Dni, Years, MedicalPlan, PhoneNumber, Address from Patient");
                 data.Read();
                 while (data.PropReader.Read())
                 {

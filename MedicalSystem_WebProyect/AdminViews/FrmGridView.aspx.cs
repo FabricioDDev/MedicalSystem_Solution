@@ -29,12 +29,12 @@ namespace MedicalSystem_WebProyect.AdminViews
         {
             if (Content == 1)
             {
-                GvData.DataSource = medicalData.ListSP();
+                GvData.DataSource = medicalData.List();
                 LblTitle.Text = "Doctors";
             }
             else if (Content == 2)
             {
-                GvData.DataSource = patientData.PatientListSP();
+                GvData.DataSource = patientData.PatientList();
                 LblTitle.Text = "Patients";
             }
             GvData.DataBind();
@@ -64,8 +64,8 @@ namespace MedicalSystem_WebProyect.AdminViews
         private void FastFilter()
         {
             Helper helper = new Helper();
-            if (Content == 1) GV_Charge(helper.FastFilter(TxtFastFilter.Text, medicalData.ListSP()));
-            else GV_Charge(helper.FastFilter(TxtFastFilter.Text, patientData.PatientListSP()));
+            if (Content == 1) GV_Charge(helper.FastFilter(TxtFastFilter.Text, medicalData.List()));
+            else GV_Charge(helper.FastFilter(TxtFastFilter.Text, patientData.PatientList()));
         }
 
         protected void BtnExit_Click(object sender, EventArgs e)
@@ -83,6 +83,7 @@ namespace MedicalSystem_WebProyect.AdminViews
             int Id = int.Parse(GvData.DataKeys[e.RowIndex].Value.ToString());
             if (Content == 1) medicalData.MedicalDeleteSP(Id);
             else patientData.PatientDelete(Id);
+            GV_Charge();
         }
     }
 }

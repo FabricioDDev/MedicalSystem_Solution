@@ -13,12 +13,12 @@ namespace DataModel
         public MedicalData() { data = new DataAccess(); }
         private DataAccess data;
 
-        public List<Medical> ListSP()
+        public List<Medical> List()
         {
             List<Medical>List = new List<Medical>();
             try
             {
-                data.SP("MedicalList");
+                data.Query("select Id, FullName, UserName, Pass, Email, Dni from Medical");
                 data.Read();
                 while (data.PropReader.Read())
                 {
@@ -36,7 +36,6 @@ namespace DataModel
             catch (Exception ex) { throw ex; }
             finally { data.Close(); }
         }
-        //podria hacer una funcion, q use una lambda para buscar con el criterio pasado por parametro
         public void MedicalInsertSP(Medical medical)
         {
             try
@@ -52,7 +51,6 @@ namespace DataModel
             catch (Exception ex) { throw ex; }
             finally { data.Close(); }
         }
-    
         public void MedicalUpdateSP(Medical medical)
         {
             try
