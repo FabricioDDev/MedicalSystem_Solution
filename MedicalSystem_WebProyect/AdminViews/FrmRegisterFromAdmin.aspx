@@ -43,7 +43,7 @@
             <asp:TextBox ID="TxtAddress" runat="server"></asp:TextBox>
 
             <asp:Button ID="BtnAdd" OnClick="BtnAdd_Click" runat="server" Text="Add" />
-            <asp:Button ID="BtnCancel" runat="server" Text="Cancel" />
+            <asp:Button ID="BtnCancel" OnClick="BtnCancel_Click" runat="server" Text="Cancel" />
         </div>
     </form>
 </body>

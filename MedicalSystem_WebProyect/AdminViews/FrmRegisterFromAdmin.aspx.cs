@@ -120,5 +120,10 @@ namespace MedicalSystem_WebProyect.AdminViews
             
             Response.Redirect("FrmGridView.aspx?content=" + Content);
         }
+
+        protected void BtnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmGridView.aspx?content=" + Content);
+        }
     }
 }
