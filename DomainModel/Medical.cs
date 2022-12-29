@@ -19,7 +19,6 @@ namespace DomainModel
             set { Password = value; }
         }
         public string Dni { get; set; }
-        public List<int> IdPatientsList { get;set; }
-       
+        public List<Patient> PatientsList { get;set; }
     }
 }

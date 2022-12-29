@@ -78,5 +78,71 @@ namespace DataModel
             catch(Exception ex) { throw ex; }
             finally { data.Close(); }
         }
+
+        public List<int> Read_Patients_Id_list(int Id)
+        {
+            try
+            {
+                int id = 0;
+                List<int> List = new List<int>();
+                data.Query("select Patient_Id from Medical_Detail where Medical_Id = Id");
+                data.Read();
+                while (data.PropReader.Read())
+                {
+                    id = (int)data.PropReader["Patient_Id"];
+                    List.Add(id);
+                }
+                return List;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { data.Close(); }
+        }
+
+        public List<Patient> Read_Patients_List(int Medical_Id)
+        {
+            List<Patient> List = new List<Patient>();
+            PatientData patientData = new PatientData();
+            try
+            {
+                foreach (int Idpatient in Read_Patients_Id_list(Medical_Id))
+                {
+                    List.Add(patientData.PatientList().Find(x => x.Id == Idpatient));
+                }
+                return List;
+            }
+            catch(Exception ex) { throw ex;}
+            finally { data.Close(); }
+        }
+
+        public void Insert_To_PatientList(int Patient_Id, int Medical_Id)
+        {
+            try
+            {
+                data.Query("insert into Medical_Detail values (@Medical, @Patient)");
+                data.Parameters("@Medical", Medical_Id);
+                data.Parameters("@Patient", Patient_Id);
+                data.Execute();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { data.Close(); }
+        }
+        public void Delete_Patient_from_PatientList(int Medical_Id, int Patient_Id)
+        {
+            try
+            {
+                data.Query("delete Medical_Detail where Medical_Id = @Medical_Id and Patient_Id = @Patient_Id");
+                data.Parameters("@Medical_Id", Medical_Id);
+                data.Parameters("Patient_Id", Patient_Id);
+                data.Execute();
+            }
+            catch (Exception ex) { throw ex; }
+            finally { data.Close(); }
+        }
     }
 }
