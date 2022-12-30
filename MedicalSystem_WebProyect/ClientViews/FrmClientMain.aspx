@@ -10,7 +10,13 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            
+            <!--labellink con el nombre de usuario, y logo de config cuenta -->
+            <asp:LinkButton ID="LkbUserConfig" runat="server"></asp:LinkButton>
+            <a href="#">logo</a>
+            <!-- btn mis turnos: mandar content 1-->
+            <asp:Button ID="BtnAppointment" runat="server" Text="Appointments" />
+            <!-- btn mis pacientes: mandar content 2-->
+            <asp:Button ID="BtnPatient" runat="server" Text="Patients" />
         </div>
     </form>
 </body>
