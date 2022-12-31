@@ -21,13 +21,21 @@ namespace MedicalSystem_WebProyect.ClientViews
                 medical = helper.SearchUser(int.Parse(Session["IdUser"].ToString()), medicalData.List());
                 LkbUserConfig.Text = medical.UserName;
             }
-                
         }
-
         protected void BtnExit_Click(object sender, EventArgs e)
         {
             Session.Remove("IdUser");
             Response.Redirect("FrmClientLogin.aspx");
+        }
+
+        protected void BtnAppointment_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmRegister.aspx?content=1");
+        }
+
+        protected void BtnPatient_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmRegister.aspx?content=2");
         }
     }
 }

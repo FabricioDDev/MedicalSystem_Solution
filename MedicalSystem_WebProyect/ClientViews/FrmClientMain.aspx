@@ -14,9 +14,9 @@
             <asp:LinkButton ID="LkbUserConfig" runat="server"></asp:LinkButton>
             <a href="#">logo</a>
             <!-- btn mis turnos: mandar content 1-->
-            <asp:Button ID="BtnAppointment" runat="server" Text="Appointments" />
+            <asp:Button ID="BtnAppointment" OnClick="BtnAppointment_Click" runat="server" Text="Appointments" />
             <!-- btn mis pacientes: mandar content 2-->
-            <asp:Button ID="BtnPatient" runat="server" Text="Patients" />
+            <asp:Button ID="BtnPatient" OnClick="BtnPatient_Click" runat="server" Text="Patients" />
             <!-- btn exit-->
             <asp:Button ID="BtnExit" OnClick="BtnExit_Click" runat="server" Text="Exit" />
         </div>

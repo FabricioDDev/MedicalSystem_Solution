@@ -73,6 +73,7 @@
     <Content Include="AdminViews\FrmRegisterFromAdmin.aspx" />
     <Content Include="ClientViews\FrmClientLogin.aspx" />
     <Content Include="ClientViews\FrmClientMain.aspx" />
+    <Content Include="ClientViews\FrmRegister.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -118,6 +119,13 @@
     </Compile>
     <Compile Include="ClientViews\FrmClientMain.aspx.designer.cs">
       <DependentUpon>FrmClientMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientViews\FrmRegister.aspx.cs">
+      <DependentUpon>FrmRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientViews\FrmRegister.aspx.designer.cs">
+      <DependentUpon>FrmRegister.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
