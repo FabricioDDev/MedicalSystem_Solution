@@ -24,5 +24,10 @@ namespace MedicalSystem_WebProyect.ClientViews
                 
         }
 
+        protected void BtnExit_Click(object sender, EventArgs e)
+        {
+            Session.Remove("IdUser");
+            Response.Redirect("FrmClientLogin.aspx");
+        }
     }
 }

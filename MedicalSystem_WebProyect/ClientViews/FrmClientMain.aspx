@@ -17,6 +17,8 @@
             <asp:Button ID="BtnAppointment" runat="server" Text="Appointments" />
             <!-- btn mis pacientes: mandar content 2-->
             <asp:Button ID="BtnPatient" runat="server" Text="Patients" />
+            <!-- btn exit-->
+            <asp:Button ID="BtnExit" OnClick="BtnExit_Click" runat="server" Text="Exit" />
         </div>
     </form>
 </body>
