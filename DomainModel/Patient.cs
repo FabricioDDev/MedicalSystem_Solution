@@ -16,5 +16,9 @@ namespace DomainModel
         public string MedicalPlan { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
+        public override string ToString()
+        {
+            return FullName;
+        }
     }
 }

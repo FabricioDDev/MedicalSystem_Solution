@@ -10,7 +10,6 @@ namespace DomainModel
     public class Appointment
     {
         public int Id { get; set; }
-        public string Time { get; set; }
         public DateTime date { get; set; }
         public Medical medical { get; set; }
         public Patient patient { get; set; }

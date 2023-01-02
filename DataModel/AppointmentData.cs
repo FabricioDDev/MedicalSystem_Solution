@@ -24,7 +24,6 @@ namespace DataModel
                 {
                     Appointment aux = new Appointment();
                     aux.Id = (int)data.PropReader["Id"];
-                    aux.Time = (string)data.PropReader["Time"];
                     aux.date = (DateTime)data.PropReader["AppointmentDate"];
 
                     aux.medical = new Medical();
@@ -37,11 +36,11 @@ namespace DataModel
 
                     aux.state = new State();
                     aux.state.Id = (int)data.PropReader["Sid"];
-                    aux.state.Name = (string)data.PropReader["Name"];
+                    aux.state.Name = (string)data.PropReader["Sname"];
 
                     aux.query = new Query();
                     aux.query.Id = (int)data.PropReader["id"];
-                    aux.query.Name = (string)data.PropReader["name"];
+                    aux.query.Name = (string)data.PropReader["Qname"];
 
                     list.Add(aux);
                 }
@@ -60,7 +59,6 @@ namespace DataModel
                 data.Parameters("@IdPatient", appointment.patient.Id);
                 data.Parameters("@IdState", appointment.state.Id);
                 data.Parameters("@IdQuery", appointment.query.Id);
-                data.Parameters("@Time", appointment.Time);
                 data.Parameters("@AppointmentDate", appointment.date);
                 data.Execute();
             }
@@ -76,7 +74,6 @@ namespace DataModel
                 data.Parameters("@IdPatient", appointment.patient.Id);
                 data.Parameters("@IdState", appointment.state.Id);
                 data.Parameters("@IdQuery", appointment.query.Id);
-                data.Parameters("@Time", appointment.Time);
                 data.Parameters("@AppointmentDate", appointment.date);
                 data.Parameters("@Id", appointment.Id);
                 data.Execute();

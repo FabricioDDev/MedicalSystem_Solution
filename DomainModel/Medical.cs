@@ -20,5 +20,10 @@ namespace DomainModel
         }
         public string Dni { get; set; }
         public List<Patient> PatientsList { get;set; }
+
+        public override string ToString()
+        {
+            return FullName;
+        }
     }
 }

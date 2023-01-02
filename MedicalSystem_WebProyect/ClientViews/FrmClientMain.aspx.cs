@@ -30,12 +30,12 @@ namespace MedicalSystem_WebProyect.ClientViews
 
         protected void BtnAppointment_Click(object sender, EventArgs e)
         {
-            Response.Redirect("FrmRegister.aspx?content=1");
+            Response.Redirect("FrmGvData.aspx?content=1");
         }
 
         protected void BtnPatient_Click(object sender, EventArgs e)
         {
-            Response.Redirect("FrmRegister.aspx?content=2");
+            Response.Redirect("FrmGvData.aspx?content=2");
         }
     }
 }
