@@ -82,12 +82,12 @@ namespace DataModel
             finally { data.Close(); }
         }
     
-        public void AppointmentDeleteSP(Appointment appointment)
+        public void AppointmentDeleteSP(int Id)
         {
             try
             {
                 data.SP("AppointmentDelete");
-                data.Parameters("@Id", appointment.Id);
+                data.Parameters("@Id", Id);
                 data.Execute();
             }
             catch (Exception ex) { throw ex; }

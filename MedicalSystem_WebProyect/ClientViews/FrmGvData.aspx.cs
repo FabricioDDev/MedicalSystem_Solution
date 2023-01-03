@@ -22,10 +22,17 @@ namespace MedicalSystem_WebProyect.ClientViews
             }
             else if(content == 2)
             {
-                //error en la funcion
                 MedicalData medicalData = new MedicalData();
                 GvData2.DataSource = medicalData.Read_Patients_(int.Parse(Session["IdUser"].ToString())); GvData2.DataBind();
             }
+        }
+
+        protected void GvData_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int IdToDelete = int.Parse(GvData.DataKeys[e.RowIndex].Value.ToString());
+            AppointmentData appointmentData = new AppointmentData();
+            appointmentData.AppointmentDeleteSP(IdToDelete);
+            Charge_GvData();
         }
     }
 }
