@@ -50,9 +50,31 @@ namespace MedicalSystem_WebProyect.ClientViews
 
         protected void BtnAdd_Click(object sender, EventArgs e)
         {
-
             if (content == 1) Response.Redirect("FrmAppointmentRegister.aspx");
             else if (content == 2) Response.Redirect("FrmMedicalPatientRegister.aspx");
+        }
+
+        protected void CkbAdvancedFilter_CheckedChanged(object sender, EventArgs e)
+        {
+            //refactorizacion: creo que con un array se podria simplificar(para pensar).
+            if (CkbAdvancedFilter.Checked == true)
+            {
+                LblCamp.Visible = true;
+                DdlCamp.Visible = true;
+                LblCriterion.Visible = true;
+                DdlCriterion.Visible = true;
+                BtnApply.Visible = true;
+                TxtFastFilter.Enabled = false;
+            }
+            if (CkbAdvancedFilter.Checked == false)
+            {
+                LblCamp.Visible = false;
+                DdlCamp.Visible = false;
+                LblCriterion.Visible = false;
+                DdlCriterion.Visible = false;
+                BtnApply.Visible = false;
+                TxtFastFilter.Enabled = true;
+            }
         }
     }
 }

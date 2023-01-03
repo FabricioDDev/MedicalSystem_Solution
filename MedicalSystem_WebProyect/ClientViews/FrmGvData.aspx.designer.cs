@@ -42,6 +42,24 @@ namespace MedicalSystem_WebProyect.ClientViews
         protected global::System.Web.UI.WebControls.TextBox TxtFastFilter;
 
         /// <summary>
+        /// Control CkbAdvancedFilter.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CkbAdvancedFilter;
+
+        /// <summary>
+        /// Control LblCamp.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblCamp;
+
+        /// <summary>
         /// Control DdlCamp.
         /// </summary>
         /// <remarks>
@@ -49,6 +67,15 @@ namespace MedicalSystem_WebProyect.ClientViews
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DdlCamp;
+
+        /// <summary>
+        /// Control LblCriterion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblCriterion;
 
         /// <summary>
         /// Control DdlCriterion.

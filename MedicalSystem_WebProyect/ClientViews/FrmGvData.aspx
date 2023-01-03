@@ -14,9 +14,12 @@
             <!-- Filtro Rapido: por nombre-->
             <asp:TextBox ID="TxtFastFilter" runat="server"></asp:TextBox>
             <!-- Filtro avanzado: turnocrud: por estado y tipo de consulta. -->
-            <asp:DropDownList ID="DdlCamp" runat="server"></asp:DropDownList>
-            <asp:DropDownList ID="DdlCriterion" runat="server"></asp:DropDownList>
-            <asp:Button ID="BtnApply" runat="server" Text="Apply" />
+            <asp:CheckBox ID="CkbAdvancedFilter" AutoPostBack="true" OnCheckedChanged="CkbAdvancedFilter_CheckedChanged" runat="server" Text="Advanced Filter" />
+            <asp:Label ID="LblCamp" runat="server" Text="Camp" Visible="false"></asp:Label>
+            <asp:DropDownList ID="DdlCamp" runat="server" Visible="false"></asp:DropDownList>
+            <asp:Label ID="LblCriterion" runat="server" Text="Criterion" Visible="false"></asp:Label>
+            <asp:DropDownList ID="DdlCriterion" runat="server" Visible="false"></asp:DropDownList>
+            <asp:Button ID="BtnApply" runat="server" Text="Apply" Visible="false"/>
             <!-- btn Add-->
             <asp:Button ID="BtnAdd" OnClick="BtnAdd_Click" runat="server" Text="Add" />
             <!-- GvData con select y delete-->
