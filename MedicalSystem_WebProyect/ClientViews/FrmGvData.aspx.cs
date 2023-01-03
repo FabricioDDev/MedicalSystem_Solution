@@ -47,5 +47,12 @@ namespace MedicalSystem_WebProyect.ClientViews
         {
             Response.Redirect("FrmClientMain.aspx");
         }
+
+        protected void BtnAdd_Click(object sender, EventArgs e)
+        {
+
+            if (content == 1) Response.Redirect("FrmAppointmentRegister.aspx");
+            else if (content == 2) Response.Redirect("FrmMedicalPatientRegister.aspx");
+        }
     }
 }

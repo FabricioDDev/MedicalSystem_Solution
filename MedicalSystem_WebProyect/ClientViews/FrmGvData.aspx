@@ -18,7 +18,7 @@
             <asp:DropDownList ID="DdlCriterion" runat="server"></asp:DropDownList>
             <asp:Button ID="BtnApply" runat="server" Text="Apply" />
             <!-- btn Add-->
-            <asp:Button ID="BtnAdd" runat="server" Text="Add" />
+            <asp:Button ID="BtnAdd" OnClick="BtnAdd_Click" runat="server" Text="Add" />
             <!-- GvData con select y delete-->
             <%if (content == 1)
                 { %>
