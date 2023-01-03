@@ -43,6 +43,9 @@ namespace MedicalSystem_WebProyect.ClientViews
             Response.Redirect("FrmMedicalPatientRegister.aspx?Id=" + Id);
         }
 
-       
+        protected void BtnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmClientMain.aspx");
+        }
     }
 }

@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Button ID="BtnBack" runat="server" Text="Back" />
+            <asp:Button ID="BtnBack" runat="server" OnClick="BtnBack_Click" Text="Back" />
             <!-- Filtro Rapido: por nombre-->
             <asp:TextBox ID="TxtFastFilter" runat="server"></asp:TextBox>
             <!-- Filtro avanzado: turnocrud: por estado y tipo de consulta. -->
