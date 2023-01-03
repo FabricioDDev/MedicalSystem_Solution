@@ -22,14 +22,15 @@
             <!-- GvData con select y delete-->
             <%if (content == 1)
                 { %>
-                <asp:GridView ID="GvData" DataKeyNames="Id" OnRowDeleting="GvData_RowDeleting" AutoGenerateColumns="false" runat="server">
+                <asp:GridView ID="GvData" DataKeyNames="Id" OnSelectedIndexChanged="GvData_SelectedIndexChanged" AutoGenerateColumns="false" runat="server">
                     <Columns>
+                        <asp:CommandField ShowSelectButton="true" SelectText="Select" HeaderText="command" />
+                        <asp:BoundField DataField="Id" HeaderText="Id" />
                         <asp:BoundField DataField="patient" HeaderText="PatientName" />
                         <asp:BoundField DataField="medical" HeaderText="DoctorName" />
                         <asp:BoundField DataField="date" HeaderText="Date"/>
                         <asp:BoundField DataField="state" HeaderText="State"/>
                         <asp:BoundField DataField="query" HeaderText="QueryType"/>
-                        <asp:CommandField ShowDeleteButton="true" DeleteText="delete" />
 
                     </Columns>
                 </asp:GridView>
@@ -37,7 +38,11 @@
 
             <%else if (content == 2)
                 { %>
-                    <asp:GridView ID="GvData2"  runat="server"></asp:GridView>
+                    <asp:GridView ID="GvData2" OnSelectedIndexChanged="GvData2_SelectedIndexChanged" runat="server">
+                        <Columns>
+                            <asp:CommandField ShowSelectButton="true" SelectText="Select" HeaderText="command" />
+                        </Columns>
+                    </asp:GridView>
                <%} %>
             
         </div>

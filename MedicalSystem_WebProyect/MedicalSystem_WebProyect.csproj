@@ -71,9 +71,11 @@
     <Content Include="AdminViews\FrmAdminMain.aspx" />
     <Content Include="AdminViews\FrmGridView.aspx" />
     <Content Include="AdminViews\FrmRegisterFromAdmin.aspx" />
+    <Content Include="ClientViews\FrmAppointmentRegister.aspx" />
     <Content Include="ClientViews\FrmClientLogin.aspx" />
     <Content Include="ClientViews\FrmClientMain.aspx" />
     <Content Include="ClientViews\FrmGvData.aspx" />
+    <Content Include="ClientViews\FrmMedicalPatientRegister.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -106,6 +108,13 @@
     <Compile Include="AdminViews\FrmRegisterFromAdmin.aspx.designer.cs">
       <DependentUpon>FrmRegisterFromAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ClientViews\FrmAppointmentRegister.aspx.cs">
+      <DependentUpon>FrmAppointmentRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientViews\FrmAppointmentRegister.aspx.designer.cs">
+      <DependentUpon>FrmAppointmentRegister.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClientViews\FrmClientLogin.aspx.cs">
       <DependentUpon>FrmClientLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -126,6 +135,13 @@
     </Compile>
     <Compile Include="ClientViews\FrmGvData.aspx.designer.cs">
       <DependentUpon>FrmGvData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientViews\FrmMedicalPatientRegister.aspx.cs">
+      <DependentUpon>FrmMedicalPatientRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientViews\FrmMedicalPatientRegister.aspx.designer.cs">
+      <DependentUpon>FrmMedicalPatientRegister.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
