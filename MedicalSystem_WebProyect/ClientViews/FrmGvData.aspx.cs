@@ -15,12 +15,16 @@ namespace MedicalSystem_WebProyect.ClientViews
         protected void Page_Load(object sender, EventArgs e)
         {
             content = int.Parse(Request.QueryString["content"]);
-            if(content == 1)
+            Charge_GvData();
+        }
+        private void Charge_GvData()
+        {
+            if (content == 1)
             {
-                AppointmentData appointmentData= new AppointmentData();
+                AppointmentData appointmentData = new AppointmentData();
                 GvData.DataSource = appointmentData.AppointmentListSP(); GvData.DataBind();
             }
-            else if(content == 2)
+            else if (content == 2)
             {
                 MedicalData medicalData = new MedicalData();
                 GvData2.DataSource = medicalData.Read_Patients_(int.Parse(Session["IdUser"].ToString())); GvData2.DataBind();
