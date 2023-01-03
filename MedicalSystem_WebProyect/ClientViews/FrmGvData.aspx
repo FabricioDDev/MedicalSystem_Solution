@@ -32,11 +32,12 @@
 
                     </Columns>
                 </asp:GridView>
-            <%}
-                else if (content == 2)
+            <%} %>
+
+            <%else if (content == 2)
                 { %>
                     <asp:GridView ID="GvData2"  runat="server"></asp:GridView>
-            <%} %>
+               <%} %>
             
         </div>
     </form>

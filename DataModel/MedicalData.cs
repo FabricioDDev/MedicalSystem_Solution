@@ -78,44 +78,37 @@ namespace DataModel
             catch(Exception ex) { throw ex; }
             finally { data.Close(); }
         }
-
-        public List<int> Read_Patients_Id_list(int Id)
+        public List<Patient> Read_Patients_(int IdM)
         {
             try
             {
-                int id = 0;
-                List<int> List = new List<int>();
-                data.Query("select Patient_Id from Medical_Detail where Medical_Id = Id");
+                //Get Id
+                string query = "select Patient_Id from Medical_Detail where Medical_Id = " + IdM;
+                List<int> IdList = new List<int>();
+                data.Query(query);
                 data.Read();
                 while (data.PropReader.Read())
                 {
-                    id = (int)data.PropReader["Patient_Id"];
-                    List.Add(id);
+                    int id = (int)data.PropReader["Patient_Id"];
+                    IdList.Add(id);
                 }
-                return List;
+
+                //Get Patients 
+                PatientData patientData = new PatientData();
+                List<Patient> patientList = new List<Patient>();
+
+                foreach (int i in IdList)
+                {
+                    Patient aux = patientData.PatientList().Find(x => x.Id == i);
+                    patientList.Add(aux);
+                }
+                return patientList;
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            catch(Exception ex) { throw ex; }
             finally { data.Close(); }
         }
 
-        public List<Patient> Read_Patients_List(int Medical_Id)
-        {
-            List<Patient> List = new List<Patient>();
-            PatientData patientData = new PatientData();
-            try
-            {
-                foreach (int Idpatient in Read_Patients_Id_list(Medical_Id))
-                {
-                    List.Add(patientData.PatientList().Find(x => x.Id == Idpatient));
-                }
-                return List;
-            }
-            catch(Exception ex) { throw ex;}
-            finally { data.Close(); }
-        }
+        
 
         public void Insert_To_PatientList(int Patient_Id, int Medical_Id)
         {
