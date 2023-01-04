@@ -44,12 +44,11 @@
                     </Columns>
                 </asp:GridView>
             <%} %>
-
             <%else if (content == 2)
                 { %>
                     <asp:GridView ID="GvData2" OnSelectedIndexChanged="GvData2_SelectedIndexChanged" runat="server">
                         <Columns>
-                            <!--sacar datos sensibles del paciente -->
+                            
                             <asp:CommandField ShowSelectButton="true" SelectText="Select" HeaderText="command" />
                         </Columns>
                     </asp:GridView>

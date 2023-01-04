@@ -35,6 +35,11 @@ namespace MedicalSystem_WebProyect.ClientViews
             GvData.DataSource = list;
             GvData.DataBind();
         }
+        private void Charge_GvData(List<Patient> list)
+        {
+            GvData2.DataSource = list;
+            GvData2.DataBind();
+        }
 
         protected void GvData_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -89,6 +94,15 @@ namespace MedicalSystem_WebProyect.ClientViews
             {
                 AppointmentData appointmentData = new AppointmentData();
                 Charge_GvData(helper.FastFilter(TxtFastFilter.Text, appointmentData.AppointmentListSP()));
+            }
+            else
+            {
+                MedicalData medicalData = new MedicalData();
+                Charge_GvData(
+                    helper.FastFilter(
+                        TxtFastFilter.Text,
+                        medicalData.Read_Patients_(
+                            int.Parse(Session["IdUser"].ToString()))));
             }
         }
     }
