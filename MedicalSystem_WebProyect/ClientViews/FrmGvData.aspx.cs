@@ -30,6 +30,11 @@ namespace MedicalSystem_WebProyect.ClientViews
                 GvData2.DataSource = medicalData.Read_Patients_(int.Parse(Session["IdUser"].ToString())); GvData2.DataBind();
             }
         }
+        private void Charge_GvData(List<Appointment>list)
+        {
+            GvData.DataSource = list;
+            GvData.DataBind();
+        }
 
         protected void GvData_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -74,6 +79,16 @@ namespace MedicalSystem_WebProyect.ClientViews
                 DdlCriterion.Visible = false;
                 BtnApply.Visible = false;
                 TxtFastFilter.Enabled = true;
+            }
+        }
+
+        protected void TxtFastFilter_TextChanged(object sender, EventArgs e)
+        {
+            Helper helper = new Helper();
+            if(content == 1)
+            {
+                AppointmentData appointmentData = new AppointmentData();
+                Charge_GvData(helper.FastFilter(TxtFastFilter.Text, appointmentData.AppointmentListSP()));
             }
         }
     }
