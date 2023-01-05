@@ -23,6 +23,7 @@ namespace DomainModel
             List<Appointment> Result = list.FindAll(x => x.patient.FullName.ToUpper().Contains(Criterion.ToUpper()));
             return Result;
         }
+        
         public int ValidateUser(string User, string pass, List<Medical>List)
         {
             try

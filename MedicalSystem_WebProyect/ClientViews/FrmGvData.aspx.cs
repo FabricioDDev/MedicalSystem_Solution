@@ -6,16 +6,26 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DomainModel;
 using DataModel;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace MedicalSystem_WebProyect.ClientViews
 {
     public partial class FrmGvData : System.Web.UI.Page
     {
+        //property
         public int content;
+        //Charge Functions
         protected void Page_Load(object sender, EventArgs e)
         {
             content = int.Parse(Request.QueryString["content"]);
             Charge_GvData();
+            if(!IsPostBack) Charge_DdlCamp();
+
+        }
+        private void Charge_DdlCamp()
+        {
+            DdlCamp.Items.Add("State");
+            DdlCamp.Items.Add("Query Type");
         }
         private void Charge_GvData()
         {
@@ -39,6 +49,28 @@ namespace MedicalSystem_WebProyect.ClientViews
         {
             GvData2.DataSource = list;
             GvData2.DataBind();
+        }
+
+        //Events
+        protected void DdlCamp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DdlCriterion.Items.Clear();
+            if (DdlCamp.SelectedItem.ToString() == "State")
+            {
+                StateData stateData = new StateData();
+                DdlCriterion.DataSource = stateData.QueryList();
+                DdlCriterion.DataTextField = "Name";
+                DdlCriterion.DataValueField = "Id";
+                DdlCriterion.DataBind();
+            }
+            else if (DdlCamp.SelectedItem.ToString() == "Query Type")
+            {
+                QueryData queryData = new QueryData();
+                DdlCriterion.DataSource = queryData.QueryList();
+                DdlCriterion.DataTextField = "Name";
+                DdlCriterion.DataValueField = "Id";
+                DdlCriterion.DataBind();
+            }
         }
 
         protected void GvData_SelectedIndexChanged(object sender, EventArgs e)
@@ -104,6 +136,15 @@ namespace MedicalSystem_WebProyect.ClientViews
                         medicalData.Read_Patients_(
                             int.Parse(Session["IdUser"].ToString()))));
             }
+        }
+
+        protected void BtnApply_Click(object sender, EventArgs e)
+        {
+            string camp = DdlCamp.SelectedItem.ToString();
+            string criterion = DdlCriterion.SelectedValue;
+            AppointmentData appointmentData = new AppointmentData();
+            GvData.DataSource = appointmentData.AppointmentListFilter(camp, criterion);
+            GvData.DataBind();
         }
     }
 }

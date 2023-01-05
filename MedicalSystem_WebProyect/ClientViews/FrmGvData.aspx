@@ -10,27 +10,40 @@
 <body>
     <form id="form1" runat="server">
         <div>
+
             <asp:Button ID="BtnBack" runat="server" OnClick="BtnBack_Click" Text="Back" />
+
             <!-- Filtro Rapido: por nombre-->
             <asp:TextBox ID="TxtFastFilter" AutoPostBack="true" OnTextChanged="TxtFastFilter_TextChanged" runat="server"></asp:TextBox>
+            
+             <!-- btn Add-->
+            <asp:Button ID="BtnAdd" OnClick="BtnAdd_Click" runat="server" Text="Add" />
+
             <!-- checkbox -->
+            <%if (content == 1)
+                { %>
             <asp:CheckBox 
                 ID="CkbAdvancedFilter"
                 AutoPostBack="true"
                 OnCheckedChanged="CkbAdvancedFilter_CheckedChanged"
                 runat="server"
                 Text="Advanced Filter"/>
+
                     <!-- Filtro avanzado: turnocrud: por estado y tipo de consulta. -->
+
                     <asp:Label ID="LblCamp" runat="server" Text="Camp" Visible="false"></asp:Label>
-                    <asp:DropDownList ID="DdlCamp" runat="server" Visible="false"></asp:DropDownList>
+
+                    <asp:DropDownList ID="DdlCamp" OnSelectedIndexChanged="DdlCamp_SelectedIndexChanged" AutoPostBack="true" runat="server" Visible="false"></asp:DropDownList>
+                   
                     <asp:Label ID="LblCriterion" runat="server" Text="Criterion" Visible="false"></asp:Label>
+                    
                     <asp:DropDownList ID="DdlCriterion" runat="server" Visible="false"></asp:DropDownList>
-                    <asp:Button ID="BtnApply" runat="server" Text="Apply" Visible="false"/>
-            <!-- btn Add-->
-            <asp:Button ID="BtnAdd" OnClick="BtnAdd_Click" runat="server" Text="Add" />
+                    
+                    <asp:Button ID="BtnApply" OnClick="BtnApply_Click" runat="server" Text="Apply" Visible="false"/>
+            
+           
+
             <!-- GvData con select y delete-->
-            <%if (content == 1)
-                { %>
                 <asp:GridView ID="GvData" DataKeyNames="Id" OnSelectedIndexChanged="GvData_SelectedIndexChanged" AutoGenerateColumns="false" runat="server">
                     <Columns>
                         <asp:CommandField ShowSelectButton="true" SelectText="Select" HeaderText="command" />

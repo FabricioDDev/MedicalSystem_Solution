@@ -49,7 +49,52 @@ namespace DataModel
             catch (Exception ex) { throw ex; }
             finally { data.Close(); }
         }
-    
+        public List<Appointment> AppointmentListFilter(string camp, string criterion)
+        {
+            List<Appointment> list = new List<Appointment>();
+            try
+            {
+                string query = "select A.Id as Id, AppointmentDate,M.Id as Mid, M.FullName as Mname, P.Id as Pid, P.FullName as Pname, S.Id as Sid, S.Name as Sname, Q.Id as Qid, Q.Name as Qname from Appointment A, Medical M, Patient P, StateTypes S, QueryTypes Q where A.IdMedical = M.Id and A.IdPatient = P.Id and A.IdState = S.Id AND A.IdQuery = Q.Id";
+                switch (camp)
+                {
+                    case "State":
+                        query = query + " and IdState = " + criterion; break;
+                    case "Query Type":
+                        query = query + " and IdQuery = " + criterion; break;
+                    default:
+                        break;
+                }
+                data.Query(query);
+                data.Read();
+                while (data.PropReader.Read())
+                {
+                    Appointment aux = new Appointment();
+                    aux.Id = (int)data.PropReader["Id"];
+                    aux.date = (DateTime)data.PropReader["AppointmentDate"];
+
+                    aux.medical = new Medical();
+                    aux.medical.Id = (int)data.PropReader["Mid"];
+                    aux.medical.FullName = (string)data.PropReader["Mname"];
+
+                    aux.patient = new Patient();
+                    aux.patient.Id = (int)data.PropReader["Pid"];
+                    aux.patient.FullName = (string)data.PropReader["Pname"];
+
+                    aux.state = new State();
+                    aux.state.Id = (int)data.PropReader["Sid"];
+                    aux.state.Name = (string)data.PropReader["Sname"];
+
+                    aux.query = new Query();
+                    aux.query.Id = (int)data.PropReader["id"];
+                    aux.query.Name = (string)data.PropReader["Qname"];
+
+                    list.Add(aux);
+                }
+                return list;
+            }
+            catch (Exception ex) { throw ex; }
+            finally { data.Close(); }
+        }
         public void AppointmentInsertSP(Appointment appointment)
         {
             try

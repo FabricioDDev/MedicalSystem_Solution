@@ -42,6 +42,15 @@ namespace MedicalSystem_WebProyect.ClientViews
         protected global::System.Web.UI.WebControls.TextBox TxtFastFilter;
 
         /// <summary>
+        /// Control BtnAdd.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnAdd;
+
+        /// <summary>
         /// Control CkbAdvancedFilter.
         /// </summary>
         /// <remarks>
@@ -94,15 +103,6 @@ namespace MedicalSystem_WebProyect.ClientViews
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnApply;
-
-        /// <summary>
-        /// Control BtnAdd.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnAdd;
 
         /// <summary>
         /// Control GvData.
