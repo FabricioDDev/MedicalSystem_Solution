@@ -14,6 +14,8 @@ namespace MedicalSystem_WebProyect.ClientViews
     {
         //property
         public int content;
+        private MedicalData medicalData = new MedicalData();
+        private AppointmentData appointmentData = new AppointmentData();
         //Charge Functions
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,12 +33,10 @@ namespace MedicalSystem_WebProyect.ClientViews
         {
             if (content == 1)
             {
-                AppointmentData appointmentData = new AppointmentData();
                 GvData.DataSource = appointmentData.AppointmentListSP(); GvData.DataBind();
             }
             else if (content == 2)
             {
-                MedicalData medicalData = new MedicalData();
                 GvData2.DataSource = medicalData.Read_Patients_(int.Parse(Session["IdUser"].ToString())); GvData2.DataBind();
             }
         }
@@ -124,12 +124,10 @@ namespace MedicalSystem_WebProyect.ClientViews
             Helper helper = new Helper();
             if(content == 1)
             {
-                AppointmentData appointmentData = new AppointmentData();
                 Charge_GvData(helper.FastFilter(TxtFastFilter.Text, appointmentData.AppointmentListSP()));
             }
             else
             {
-                MedicalData medicalData = new MedicalData();
                 Charge_GvData(
                     helper.FastFilter(
                         TxtFastFilter.Text,
@@ -142,7 +140,6 @@ namespace MedicalSystem_WebProyect.ClientViews
         {
             string camp = DdlCamp.SelectedItem.ToString();
             string criterion = DdlCriterion.SelectedValue;
-            AppointmentData appointmentData = new AppointmentData();
             GvData.DataSource = appointmentData.AppointmentListFilter(camp, criterion);
             GvData.DataBind();
         }
