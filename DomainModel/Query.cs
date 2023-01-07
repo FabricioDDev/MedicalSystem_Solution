@@ -8,7 +8,7 @@ namespace DomainModel
 {
     public class Query
     {
-        public int Id { get; set; } 
+        public int IdQuery { get; set; } 
         public string Name { get; set; }
         public override string ToString()
         {

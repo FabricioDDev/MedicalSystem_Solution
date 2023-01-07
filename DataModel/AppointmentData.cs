@@ -39,7 +39,7 @@ namespace DataModel
                     aux.state.Name = (string)data.PropReader["Sname"];
 
                     aux.query = new Query();
-                    aux.query.Id = (int)data.PropReader["id"];
+                    aux.query.IdQuery = (int)data.PropReader["Qid"];
                     aux.query.Name = (string)data.PropReader["Qname"];
 
                     list.Add(aux);
@@ -85,7 +85,7 @@ namespace DataModel
                     aux.state.Name = (string)data.PropReader["Sname"];
 
                     aux.query = new Query();
-                    aux.query.Id = (int)data.PropReader["id"];
+                    aux.query.IdQuery = (int)data.PropReader["id"];
                     aux.query.Name = (string)data.PropReader["Qname"];
 
                     list.Add(aux);
@@ -103,7 +103,7 @@ namespace DataModel
                 data.Parameters("@IdMedical", appointment.medical.Id);
                 data.Parameters("@IdPatient", appointment.patient.Id);
                 data.Parameters("@IdState", appointment.state.Id);
-                data.Parameters("@IdQuery", appointment.query.Id);
+                data.Parameters("@IdQuery", appointment.query.IdQuery);
                 data.Parameters("@AppointmentDate", appointment.date);
                 data.Execute();
             }
@@ -118,7 +118,7 @@ namespace DataModel
                 data.Parameters("@IdMedical", appointment.medical.Id);
                 data.Parameters("@IdPatient", appointment.patient.Id);
                 data.Parameters("@IdState", appointment.state.Id);
-                data.Parameters("@IdQuery", appointment.query.Id);
+                data.Parameters("@IdQuery", appointment.query.IdQuery);
                 data.Parameters("@AppointmentDate", appointment.date);
                 data.Parameters("@Id", appointment.Id);
                 data.Execute();

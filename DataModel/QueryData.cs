@@ -23,7 +23,7 @@ namespace DataModel
                 while (data.PropReader.Read())
                 {
                     Query aux = new Query();
-                    aux.Id = (int)data.PropReader["Id"];
+                    aux.IdQuery = (int)data.PropReader["Id"];
                     aux.Name = (string)data.PropReader["Name"];
                     list.Add(aux);
                 }

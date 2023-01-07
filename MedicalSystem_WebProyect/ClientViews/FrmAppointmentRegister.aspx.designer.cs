@@ -60,6 +60,24 @@ namespace MedicalSystem_WebProyect.ClientViews
         protected global::System.Web.UI.WebControls.TextBox TxtDate;
 
         /// <summary>
+        /// Control LblHour.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblHour;
+
+        /// <summary>
+        /// Control TxtHour.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtHour;
+
+        /// <summary>
         /// Control LblDoctor.
         /// </summary>
         /// <remarks>
@@ -123,13 +141,13 @@ namespace MedicalSystem_WebProyect.ClientViews
         protected global::System.Web.UI.WebControls.Label LblQueryType;
 
         /// <summary>
-        /// Control DropDownList2.
+        /// Control DdlQuery.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList DdlQuery;
 
         /// <summary>
         /// Control BtnSave.

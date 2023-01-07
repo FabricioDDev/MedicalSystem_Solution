@@ -11,22 +11,25 @@
     <form id="form1" runat="server">
         <div>
             <asp:Label ID="LblId" runat="server" Text="Id"></asp:Label>
-            <asp:TextBox ID="TxtId" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TxtId" Enabled="false" runat="server"></asp:TextBox>
 
             <asp:Label ID="LblDate" runat="server" Text="Date"></asp:Label>
-            <asp:TextBox ID="TxtDate" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TxtDate" TextMode="Date" runat="server"></asp:TextBox>
+
+            <asp:Label ID="LblHour" runat="server" Text="Hour"></asp:Label>
+            <asp:TextBox ID="TxtHour" TextMode="Time" runat="server" ></asp:TextBox>
 
             <asp:Label ID="LblDoctor" runat="server" Text="Doctor"></asp:Label>
-            <asp:TextBox ID="TxtDoctor" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TxtDoctor" Enabled="false" runat="server"></asp:TextBox>
 
             <asp:Label ID="LblPatient" runat="server" Text="Patient"></asp:Label>
-            <asp:DropDownList ID="DdlPatient" Enabled="true" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="DdlPatient" runat="server"></asp:DropDownList>
 
             <asp:Label ID="LblState" runat="server" Text="State"></asp:Label>
             <asp:DropDownList ID="DdlState" runat="server"></asp:DropDownList>
 
             <asp:Label ID="LblQueryType" runat="server" Text="Query Type"></asp:Label>
-            <asp:DropDownList ID="DropDownList2" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="DdlQuery" runat="server"></asp:DropDownList>
 
             <asp:Button ID="BtnSave" runat="server" Text="Save" />
 
