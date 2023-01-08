@@ -6,19 +6,23 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataModel;
+using System.Runtime.Remoting.Contexts;
+using System.Data;
 
 namespace MedicalSystem_WebProyect.ClientViews
 {
     public partial class FrmAppointmentRegister : System.Web.UI.Page
     {
         private Medical User;
+        private string content;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack) {
+            content = Request.QueryString["content"];
+            if (!IsPostBack) {
                 ChargeUser();
                 Charge_Ddl();
             }
-            if (Request.QueryString["Id"] != null) ChargeControlls();
+            if (Request.QueryString["Id"] != null && !IsPostBack) ChargeControlls();
 
         }
         private void Charge_Ddl()
@@ -64,6 +68,35 @@ namespace MedicalSystem_WebProyect.ClientViews
             DdlQuery.SelectedValue = appointment.query.IdQuery.ToString();
         }
 
-        
+        protected void BtnSave_Click(object sender, EventArgs e)
+        {
+            Appointment appointment = new Appointment();
+            string date = TxtDate.Text + " " + TxtHour.Text + ":00";
+            //date = date.Replace('/', '-');
+            appointment.date = Convert.ToDateTime(date);
+            appointment.patient = new Patient();
+            appointment.patient.Id = int.Parse(DdlPatient.SelectedValue.ToString());
+
+            
+            appointment.medical = new Medical();
+            appointment.medical.Id = int.Parse(Session["IdUser"].ToString());
+            appointment.query = new Query();
+            appointment.query.IdQuery = int.Parse(DdlQuery.SelectedValue.ToString());
+            appointment.state= new State();
+            appointment.state.Id = int.Parse(DdlState.SelectedValue.ToString());
+
+            AppointmentData appointmentData = new AppointmentData();
+            if(Request.QueryString["Id"] != null)
+            {
+                appointment.Id = int.Parse(TxtId.Text);
+                appointmentData.AppointmentUpdateSP(appointment);
+                Response.Redirect("FrmGvData.aspx?content=" + content);
+            }
+            else
+            {
+                appointmentData.AppointmentInsertSP(appointment);
+                Response.Redirect("FrmGvData.aspx?content=" + content);
+            }
+        }
     }
 }

@@ -31,7 +31,7 @@
             <asp:Label ID="LblQueryType" runat="server" Text="Query Type"></asp:Label>
             <asp:DropDownList ID="DdlQuery" runat="server"></asp:DropDownList>
 
-            <asp:Button ID="BtnSave" runat="server" Text="Save" />
+            <asp:Button ID="BtnSave" OnClick="BtnSave_Click" runat="server" Text="Save" />
 
             <asp:Button ID="BtnCancel" runat="server" Text="Cancel" />
         </div>

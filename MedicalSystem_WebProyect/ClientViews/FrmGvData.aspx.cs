@@ -76,13 +76,13 @@ namespace MedicalSystem_WebProyect.ClientViews
         protected void GvData_SelectedIndexChanged(object sender, EventArgs e)
         {
             int Id = int.Parse(GvData.SelectedRow.Cells[1].Text);
-            Response.Redirect("FrmAppointmentRegister.aspx?Id=" + Id);
+            Response.Redirect("FrmAppointmentRegister.aspx?Id=" + Id + "&&content=" + content);
         }
 
         protected void GvData2_SelectedIndexChanged(object sender, EventArgs e)
         {
             int Id = int.Parse(GvData2.SelectedRow.Cells[1].Text);
-            Response.Redirect("FrmMedicalPatientRegister.aspx?Id=" + Id);
+            Response.Redirect("FrmMedicalPatientRegister.aspx?Id=" + Id + "&&content=" + content);
         }
 
         protected void BtnBack_Click(object sender, EventArgs e)
@@ -92,8 +92,8 @@ namespace MedicalSystem_WebProyect.ClientViews
 
         protected void BtnAdd_Click(object sender, EventArgs e)
         {
-            if (content == 1) Response.Redirect("FrmAppointmentRegister.aspx");
-            else if (content == 2) Response.Redirect("FrmMedicalPatientRegister.aspx");
+            if (content == 1) Response.Redirect("FrmAppointmentRegister.aspx?content=" + content);
+            else if (content == 2) Response.Redirect("FrmMedicalPatientRegister.aspx?content=" + content);
         }
 
         protected void CkbAdvancedFilter_CheckedChanged(object sender, EventArgs e)
