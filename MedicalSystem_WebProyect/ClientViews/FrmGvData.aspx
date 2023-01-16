@@ -16,12 +16,13 @@
             <!-- Filtro Rapido: por nombre-->
             <asp:TextBox ID="TxtFastFilter" AutoPostBack="true" OnTextChanged="TxtFastFilter_TextChanged" runat="server"></asp:TextBox>
             
-             <!-- btn Add-->
-            <asp:Button ID="BtnAdd" OnClick="BtnAdd_Click" runat="server" Text="Add" />
+             
+            
 
             <!-- checkbox -->
             <%if (content == 1)
                 { %>
+            <asp:Button ID="BtnAdd" OnClick="BtnAdd_Click" runat="server" Text="Add" />
             <asp:CheckBox 
                 ID="CkbAdvancedFilter"
                 AutoPostBack="true"
@@ -46,7 +47,7 @@
             <!-- GvData con select y delete-->
                 <asp:GridView ID="GvData" DataKeyNames="Id" OnSelectedIndexChanged="GvData_SelectedIndexChanged" AutoGenerateColumns="false" runat="server">
                     <Columns>
-                        <asp:CommandField ShowSelectButton="true" SelectText="Select" HeaderText="command" />
+                        <asp:CommandField ShowSelectButton="true" SelectText="select" HeaderText="command" />
                         <asp:BoundField DataField="Id" HeaderText="Id" />
                         <asp:BoundField DataField="patient" HeaderText="PatientName" />
                         <asp:BoundField DataField="medical" HeaderText="DoctorName" />
@@ -59,10 +60,15 @@
             <%} %>
             <%else if (content == 2)
                 { %>
+                    <asp:CheckBox ID="CbxAddPatient" AutoPostBack="true" OnCheckedChanged="CbxAddPatient_CheckedChanged" Text="Add Patient" runat="server" />
+                    <asp:Label ID="LblPatients" Visible="false" runat="server" Text="Patient Name:"></asp:Label>
+                    <asp:DropDownList ID="DdlPatients" Visible="false" runat="server"></asp:DropDownList>
+                    <asp:Button ID="BtnAddPatient" OnClick="BtnAddPatient_Click" Visible="false" runat="server" Text="Add Patient" />
+                    
                     <asp:GridView ID="GvData2" OnSelectedIndexChanged="GvData2_SelectedIndexChanged" runat="server">
                         <Columns>
                             
-                            <asp:CommandField ShowSelectButton="true" SelectText="Select" HeaderText="command" />
+                            <asp:CommandField ShowSelectButton="true" SelectText="delete" HeaderText="command" />
                         </Columns>
                     </asp:GridView>
                <%} %>

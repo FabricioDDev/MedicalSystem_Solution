@@ -114,6 +114,42 @@ namespace MedicalSystem_WebProyect.ClientViews
         protected global::System.Web.UI.WebControls.GridView GvData;
 
         /// <summary>
+        /// Control CbxAddPatient.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CbxAddPatient;
+
+        /// <summary>
+        /// Control LblPatients.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblPatients;
+
+        /// <summary>
+        /// Control DdlPatients.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlPatients;
+
+        /// <summary>
+        /// Control BtnAddPatient.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnAddPatient;
+
+        /// <summary>
         /// Control GvData2.
         /// </summary>
         /// <remarks>

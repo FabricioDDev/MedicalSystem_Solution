@@ -21,13 +21,24 @@ namespace MedicalSystem_WebProyect.ClientViews
         {
             content = int.Parse(Request.QueryString["content"]);
             Charge_GvData();
-            if(!IsPostBack) Charge_DdlCamp();
+            if (!IsPostBack) { Charge_DdlCamp(); Charge_DdlPatient(); }
 
         }
         private void Charge_DdlCamp()
         {
             DdlCamp.Items.Add("State");
             DdlCamp.Items.Add("Query Type");
+        }
+        private void Charge_DdlPatient()
+        {
+            if (content == 2)
+            {
+                PatientData patientData = new PatientData();
+                DdlPatients.DataSource = patientData.PatientList();
+                DdlPatients.DataTextField = "FullName";
+                DdlPatients.DataValueField = "Id";
+                DdlPatients.DataBind();
+            }
         }
         private void Charge_GvData()
         {
@@ -50,6 +61,12 @@ namespace MedicalSystem_WebProyect.ClientViews
             GvData2.DataSource = list;
             GvData2.DataBind();
         }
+        private bool validate_if_Patient_exist(int Idp)
+        {
+            Patient Patient = medicalData.Read_Patients_(int.Parse(Session["IdUser"].ToString())).Find(x => x.Id == Idp );
+            if (Patient != null) return true;
+            else return false;
+        }
 
         //Events
         protected void DdlCamp_SelectedIndexChanged(object sender, EventArgs e)
@@ -68,7 +85,7 @@ namespace MedicalSystem_WebProyect.ClientViews
                 QueryData queryData = new QueryData();
                 DdlCriterion.DataSource = queryData.QueryList();
                 DdlCriterion.DataTextField = "Name";
-                DdlCriterion.DataValueField = "Id";
+                DdlCriterion.DataValueField = "IdQuery";
                 DdlCriterion.DataBind();
             }
         }
@@ -82,7 +99,8 @@ namespace MedicalSystem_WebProyect.ClientViews
         protected void GvData2_SelectedIndexChanged(object sender, EventArgs e)
         {
             int Id = int.Parse(GvData2.SelectedRow.Cells[1].Text);
-            Response.Redirect("FrmMedicalPatientRegister.aspx?Id=" + Id + "&&content=" + content);
+            medicalData.Delete_Patient_from_PatientList(int.Parse(Session["IdUser"].ToString()),Id);
+            Charge_GvData();
         }
 
         protected void BtnBack_Click(object sender, EventArgs e)
@@ -142,6 +160,32 @@ namespace MedicalSystem_WebProyect.ClientViews
             string criterion = DdlCriterion.SelectedValue;
             GvData.DataSource = appointmentData.AppointmentListFilter(camp, criterion);
             GvData.DataBind();
+        }
+
+        protected void CbxAddPatient_CheckedChanged(object sender, EventArgs e)
+        {
+            if(CbxAddPatient.Checked == true)
+            {
+                LblPatients.Visible = true;
+                DdlPatients.Visible =true;
+                BtnAddPatient.Visible = true;
+            }
+            else
+            {
+                LblPatients.Visible = false;
+                DdlPatients.Visible = false;
+                BtnAddPatient.Visible = false;
+            }
+        }
+
+        protected void BtnAddPatient_Click(object sender, EventArgs e)
+        {
+            int Id = int.Parse(DdlPatients.SelectedValue.ToString());
+            if (validate_if_Patient_exist(Id) == false)
+            {
+                medicalData.Insert_To_PatientList(Id, int.Parse(Session["IdUser"].ToString()));
+                Charge_GvData();
+            }
         }
     }
 }

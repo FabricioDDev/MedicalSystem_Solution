@@ -98,5 +98,10 @@ namespace MedicalSystem_WebProyect.ClientViews
                 Response.Redirect("FrmGvData.aspx?content=" + content);
             }
         }
+
+        protected void BtnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmGvData.aspx?content=" + content);
+        }
     }
 }

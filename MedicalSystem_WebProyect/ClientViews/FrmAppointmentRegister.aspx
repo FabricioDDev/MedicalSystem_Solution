@@ -33,7 +33,7 @@
 
             <asp:Button ID="BtnSave" OnClick="BtnSave_Click" runat="server" Text="Save" />
 
-            <asp:Button ID="BtnCancel" runat="server" Text="Cancel" />
+            <asp:Button ID="BtnCancel" OnClick="BtnCancel_Click" runat="server" Text="Cancel" />
         </div>
     </form>
 </body>
