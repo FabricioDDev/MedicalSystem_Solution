@@ -11,8 +11,8 @@
     <form id="form1" runat="server">
         <div>
             <!--labellink con el nombre de usuario, y logo de config cuenta -->
-            <asp:LinkButton ID="LkbUserConfig" runat="server"></asp:LinkButton>
-            <a href="#">logo</a>
+            <asp:LinkButton ID="LkbUserConfig" OnClick="LkbUserConfig_Click" runat="server"></asp:LinkButton>
+            <a href="FrmUserConfig.aspx">logo</a>
             <!-- btn mis turnos: mandar content 1-->
             <asp:Button ID="BtnAppointment" OnClick="BtnAppointment_Click" runat="server" Text="Appointments" />
             <!-- btn mis pacientes: mandar content 2-->

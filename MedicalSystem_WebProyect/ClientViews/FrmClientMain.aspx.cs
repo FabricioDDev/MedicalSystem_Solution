@@ -37,5 +37,10 @@ namespace MedicalSystem_WebProyect.ClientViews
         {
             Response.Redirect("FrmGvData.aspx?content=2");
         }
+
+        protected void LkbUserConfig_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FrmUserConfig.aspx");
+        }
     }
 }
