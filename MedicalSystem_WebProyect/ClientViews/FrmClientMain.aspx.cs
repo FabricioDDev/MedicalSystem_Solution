@@ -15,7 +15,7 @@ namespace MedicalSystem_WebProyect.ClientViews
         {
             Helper helper = new Helper();
             MedicalData medicalData = new MedicalData();
-            Medical medical = new Medical();
+            Medical medical;
             if (Session["IdUser"] != null)
             {
                 medical = helper.SearchUser(int.Parse(Session["IdUser"].ToString()), medicalData.List());
