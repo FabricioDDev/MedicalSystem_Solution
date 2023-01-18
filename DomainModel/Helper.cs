@@ -43,5 +43,11 @@ namespace DomainModel
             }
             catch(Exception ex) { throw ex; }
         }
+        public bool validate_if_Patient_exist(int Idp, List<Patient>List)
+        {   
+            Patient Patient = List.Find(x => x.Id == Idp);
+            if (Patient != null) return true;
+            else return false;
+        }
     }
 }

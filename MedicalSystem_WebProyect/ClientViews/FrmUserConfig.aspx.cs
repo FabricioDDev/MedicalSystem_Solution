@@ -11,41 +11,44 @@ namespace MedicalSystem_WebProyect.ClientViews
 {
     public partial class FrmUserConfig : System.Web.UI.Page
     {
-        private Medical User;
+        public FrmUserConfig() { medicalData = new MedicalData(); }
+        private Medical user;
+        public MedicalData medicalData;
         protected void Page_Load(object sender, EventArgs e)
         {
-            search_User();
-           if(!IsPostBack) charge_Elements();
+            try
+            {
+                Helper helper = new Helper();
+                user = helper.SearchUser(int.Parse(Session["IdUser"].ToString()), medicalData.List());
+                if (!IsPostBack) charge_Elements();
+            }catch(Exception ex) { throw ex; }
         }
-        private void search_User()
-        {
-            //refactorizar: hacer funcion en clase helper
-            MedicalData medicalData = new MedicalData();
-            User = medicalData.List().Find(x => x.Id == int.Parse(Session["IdUser"].ToString()));
-        }
+        
         private void charge_Elements()
         {
-            TxtId.Text = User.Id.ToString();
-            TxtFullName.Text = User.FullName;
-            TxtUserName.Text = User.UserName;
-            TxtEmail.Text = User.Email;
-            TxtPass.Text = User.PropPassword;
-            TxtDni.Text = User.Dni;
+            TxtId.Text = user.Id.ToString();
+            TxtFullName.Text = user.FullName;
+            TxtUserName.Text = user.UserName;
+            TxtEmail.Text = user.Email;
+            TxtPass.Text = user.PropPassword;
+            TxtDni.Text = user.Dni;
         }
 
         protected void BtnSave_Click(object sender, EventArgs e)
         {
-            Medical medical = new Medical();
-            medical.Id = int.Parse(TxtId.Text);
-            medical.FullName= TxtFullName.Text;
-            medical.UserName= TxtUserName.Text;
-            medical.Email= TxtEmail.Text;
-            medical.PropPassword = TxtPass.Text;
-            medical.Dni= TxtDni.Text;
+            try
+            {
+                Medical medical = new Medical();
+                medical.Id = int.Parse(TxtId.Text);
+                medical.FullName = TxtFullName.Text;
+                medical.UserName = TxtUserName.Text;
+                medical.Email = TxtEmail.Text;
+                medical.PropPassword = TxtPass.Text;
+                medical.Dni = TxtDni.Text;
 
-            MedicalData medicalData = new MedicalData();
-            medicalData.MedicalUpdateSP(medical);
-            Response.Redirect("FrmClientMain.aspx");
+                medicalData.MedicalUpdateSP(medical);
+                Response.Redirect("FrmClientMain.aspx");
+            }catch(Exception ex ) { throw ex; }
         }
 
         protected void BtnCancel_Click(object sender, EventArgs e)

@@ -9,6 +9,7 @@ namespace DomainModel
 {
     public class Appointment
     {
+        public Appointment() {  }
         public int Id { get; set; }
         public DateTime date { get; set; }
         public Medical medical { get; set; }
