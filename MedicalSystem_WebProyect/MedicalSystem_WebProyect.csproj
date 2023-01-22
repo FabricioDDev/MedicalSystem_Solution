@@ -76,6 +76,7 @@
     <Content Include="ClientViews\FrmClientMain.aspx" />
     <Content Include="ClientViews\FrmGvData.aspx" />
     <Content Include="ClientViews\FrmUserConfig.aspx" />
+    <Content Include="FrmError.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -142,6 +143,13 @@
     </Compile>
     <Compile Include="ClientViews\FrmUserConfig.aspx.designer.cs">
       <DependentUpon>FrmUserConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmError.aspx.cs">
+      <DependentUpon>FrmError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmError.aspx.designer.cs">
+      <DependentUpon>FrmError.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

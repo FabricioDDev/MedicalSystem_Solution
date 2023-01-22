@@ -23,12 +23,18 @@ namespace MedicalSystem_WebProyect.AdminViews
         private void AdminUserValidation()
         {
             AdminData adminData = new AdminData();
-            Func<string, string, Admin, bool> GetAdm = (Email, Pass, adm) => adm.Email == Email && adm.PropPassword == Pass;
-            foreach (Admin admin in adminData.ListSP())
+            try
             {
-                if (!GetAdm(TxtEmail.Text, TxtPass.Text, admin)) TxtEmail.Text = "Vuelva a intentarlo";
-                else Response.Redirect("FrmAdminMain.aspx", false);
+                Admin admin = adminData.ListSP().Find(x => x.Email == TxtEmail.Text && x.PropPassword == TxtPass.Text);
+
+                if (admin != null) { Session.Add("Admin", admin); Response.Redirect("FrmAdminMain.aspx", false); }
+                else LblWarning.Text = "The User or Pass is Wrong. Try again!";
             }
+            catch (Exception)
+            {
+                Response.Redirect("FrmError.aspx");
+            }
+            
         }
     }
 }

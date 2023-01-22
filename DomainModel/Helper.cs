@@ -49,5 +49,10 @@ namespace DomainModel
             if (Patient != null) return true;
             else return false;
         }
+
+        public Func<string, int, int, bool> validate_Long_textbox = (texto, min, max) => texto.Count() >= min && texto.Count() <= max;
+
+        public Func<string, bool> validate_IsNumber = (texto) => texto.All(char.IsDigit);
+
     }
 }

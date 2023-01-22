@@ -11,6 +11,8 @@ namespace MedicalSystem_WebProyect.AdminViews
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Admin"] == null)
+                Response.Redirect("FrmAdminLogin.aspx", false);
         }
 
         protected void BtnDoc_Click(object sender, EventArgs e)
@@ -25,6 +27,7 @@ namespace MedicalSystem_WebProyect.AdminViews
 
         protected void BtnExit_Click(object sender, EventArgs e)
         {
+            Session.Remove("Admin");
             Response.Redirect("FrmAdminLogin.aspx");
         }
     }

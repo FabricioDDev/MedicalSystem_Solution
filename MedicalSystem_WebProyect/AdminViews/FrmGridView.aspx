@@ -10,6 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Label ID="LblWarning" runat="server" Text=""></asp:Label>
             <!--btnExit-->
             <asp:Button ID="BtnExit" runat="server" OnClick="BtnExit_Click" Text="Exit" />
             <!--Buscador rapido-->

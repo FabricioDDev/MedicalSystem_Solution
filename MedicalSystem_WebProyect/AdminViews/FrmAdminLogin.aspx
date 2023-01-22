@@ -10,6 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Label ID="LblWarning" runat="server" Text=""></asp:Label>
             <asp:Label ID="LblEmail" runat="server" Text="Email"></asp:Label>
             <asp:TextBox ID="TxtEmail" runat="server"></asp:TextBox>
             <asp:Label ID="LblPass"  runat="server" Text="Pass"></asp:Label>
