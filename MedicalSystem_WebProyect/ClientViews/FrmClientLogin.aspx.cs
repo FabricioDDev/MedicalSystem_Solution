@@ -28,5 +28,10 @@ namespace MedicalSystem_WebProyect.ClientViews
             }
             catch(Exception ex) { throw ex; }
         }
+
+        protected void BtnAsAdmin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../AdminViews/FrmAdminLogin.aspx", false);
+        }
     }
 }

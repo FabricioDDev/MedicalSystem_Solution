@@ -16,6 +16,7 @@
             <asp:TextBox ID="TxtPassword" TextMode="Password" runat="server"></asp:TextBox>
             <asp:Button ID="BtnGo" OnClick="BtnGo_Click" runat="server" Text="Go" />
             <asp:Label ID="LblSupport" runat="server" Text="If you Lost your Account, Comunicate with the support."></asp:Label>
+             <asp:Button ID="BtnAsAdmin" OnClick="BtnAsAdmin_Click" runat="server" Text="As Admin" />
         </div>
     </form>
 </body>

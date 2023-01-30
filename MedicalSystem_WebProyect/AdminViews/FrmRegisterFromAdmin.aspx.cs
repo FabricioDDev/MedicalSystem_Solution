@@ -39,7 +39,7 @@ namespace MedicalSystem_WebProyect.AdminViews
                     ChargeControlls();
                 }
             }
-            catch (Exception) { Response.Redirect("FrmError.aspx"); }
+            catch (Exception ex) { throw ex; }
         }
         private void user_Controlls_Charge()
         {
@@ -90,7 +90,7 @@ namespace MedicalSystem_WebProyect.AdminViews
                     TxtAddress.Text = Obj.Address;
                 }
             }
-            catch (Exception) { Response.Redirect("FrmError.aspx"); }   
+            catch (Exception ex) { throw ex; }
         }
         public void OcultControlls()
         {
@@ -131,7 +131,7 @@ namespace MedicalSystem_WebProyect.AdminViews
                 }
                 return result;
             }
-            catch (Exception) { Response.Redirect("FrmError.aspx"); }
+            catch (Exception ex) { throw ex; }
         }
 
         protected void BtnAdd_Click(object sender, EventArgs e)
@@ -169,7 +169,7 @@ namespace MedicalSystem_WebProyect.AdminViews
                 }
                 else { LblWarning.Text = "Los datos ingresados son incorrectos. intentelo de nuevo."; }
             }
-            catch (Exception) { Response.Redirect("FrmError.aspx"); }
+            catch (Exception ex) { throw ex; }
         }
         private Medical CreateMedicalObject()
         {

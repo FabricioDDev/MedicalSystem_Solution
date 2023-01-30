@@ -36,5 +36,10 @@ namespace MedicalSystem_WebProyect.AdminViews
             }
             
         }
+
+        protected void BtnClient_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../ClientViews/FrmClientLogin.aspx", false);
+        }
     }
 }
