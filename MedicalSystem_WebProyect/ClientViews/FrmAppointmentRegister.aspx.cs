@@ -31,6 +31,7 @@ namespace MedicalSystem_WebProyect.ClientViews
                 Charge_Ddl();
             }
             if (Request.QueryString["Id"] != null && !IsPostBack) ChargeControlls();
+            if (Session["Error"] != null) Response.Redirect("../FrmError.aspx");
         }
         private void Charge_Ddl()
         {
@@ -53,7 +54,8 @@ namespace MedicalSystem_WebProyect.ClientViews
                 DdlQuery.DataTextField = "Name";
                 DdlQuery.DataValueField = "IdQuery";
                 DdlQuery.DataBind();
-            }catch(Exception ex) { throw ex; }
+            }
+            catch (Exception ex) { Session.Add("Error", ex.ToString()); }
         }
         private void ChargeUser()
         {
@@ -74,7 +76,8 @@ namespace MedicalSystem_WebProyect.ClientViews
                 DdlPatient.SelectedValue = appointment.patient.Id.ToString();
                 DdlState.SelectedValue = appointment.state.Id.ToString();
                 DdlQuery.SelectedValue = appointment.query.IdQuery.ToString();
-            }catch(Exception ex) { throw ex; }
+            }
+            catch (Exception ex) { Session.Add("Error", ex.ToString()); }
         }
 
         protected void BtnSave_Click(object sender, EventArgs e)
@@ -104,7 +107,8 @@ namespace MedicalSystem_WebProyect.ClientViews
                     appointmentData.AppointmentInsertSP(appointment);
                     Response.Redirect("FrmGvData.aspx?content=" + content, false);
                 }
-            }catch(Exception ex) { throw ex; }
+            }
+            catch (Exception ex) { Session.Add("Error", ex.ToString()); }
         }
 
         protected void BtnCancel_Click(object sender, EventArgs e)

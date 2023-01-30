@@ -54,5 +54,7 @@ namespace DomainModel
 
         public Func<string, bool> validate_IsNumber = (texto) => texto.All(char.IsDigit);
 
+        
+
     }
 }

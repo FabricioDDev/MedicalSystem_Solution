@@ -29,6 +29,7 @@ namespace MedicalSystem_WebProyect.ClientViews
             content = int.Parse(Request.QueryString["content"]);
             Charge_GvData();
             if (!IsPostBack) { Charge_DdlCamp(); Charge_DdlPatient(); }
+            if (Session["Error"] != null) Response.Redirect("../FrmError.aspx");
         }
         private void Charge_DdlCamp()
         {
@@ -47,8 +48,9 @@ namespace MedicalSystem_WebProyect.ClientViews
                     DdlPatients.DataValueField = "Id";
                     DdlPatients.DataBind();
                 }
-            }catch(Exception ex) { throw ex; }
-            
+            }
+            catch (Exception ex) { Session.Add("Error", ex.ToString()); }
+
         }
         private void Charge_GvData()
         {
@@ -61,17 +63,18 @@ namespace MedicalSystem_WebProyect.ClientViews
                 {
                     GvData2.DataSource = medicalData.Read_Patients_(int.Parse(Session["IdUser"].ToString())); GvData2.DataBind();
                 }
-            }catch(Exception ex) { throw ex; }
+            }
+            catch (Exception ex) { Session.Add("Error", ex.ToString()); }
         }
         private void Charge_GvData(List<Appointment>list)
         {
             try { GvData.DataSource = list; GvData.DataBind(); }
-            catch(Exception ex) { throw ex; }
+            catch (Exception ex) { Session.Add("Error", ex.ToString()); }
         }
         private void Charge_GvData(List<Patient> list)
         {
             try { GvData2.DataSource = list; GvData2.DataBind();}
-            catch(Exception ex) { throw ex; }
+            catch (Exception ex) { Session.Add("Error", ex.ToString()); }
         }
         
 
@@ -97,7 +100,8 @@ namespace MedicalSystem_WebProyect.ClientViews
                     DdlCriterion.DataValueField = "IdQuery";
                     DdlCriterion.DataBind();
                 }
-            }catch(Exception ex) { throw ex; }
+            }
+            catch (Exception ex) { Session.Add("Error", ex.ToString()); }
         }
 
         protected void GvData_SelectedIndexChanged(object sender, EventArgs e)
@@ -112,7 +116,8 @@ namespace MedicalSystem_WebProyect.ClientViews
                 int Id = int.Parse(GvData2.SelectedRow.Cells[1].Text);
                 medicalData.Delete_Patient_from_PatientList(int.Parse(Session["IdUser"].ToString()), Id);
                 Charge_GvData();
-            }catch(Exception ex) { throw ex; }
+            }
+            catch (Exception ex) { Session.Add("Error", ex.ToString()); }
         }
 
         protected void BtnBack_Click(object sender, EventArgs e)
@@ -165,7 +170,8 @@ namespace MedicalSystem_WebProyect.ClientViews
                             TxtFastFilter.Text,
                             medicalData.Read_Patients_(IdUser)));
                 }
-            }catch(Exception ex) { throw ex; }
+            }
+            catch (Exception ex) { Session.Add("Error", ex.ToString()); }
         }
 
         protected void BtnApply_Click(object sender, EventArgs e)
@@ -176,7 +182,8 @@ namespace MedicalSystem_WebProyect.ClientViews
                 string criterion = DdlCriterion.SelectedValue;
                 GvData.DataSource = appointmentData.AppointmentListFilter(camp, criterion);
                 GvData.DataBind();
-            }catch(Exception ex) { throw ex; }
+            }
+            catch (Exception ex) { Session.Add("Error", ex.ToString()); }
         }
 
         protected void CbxAddPatient_CheckedChanged(object sender, EventArgs e)
@@ -206,7 +213,8 @@ namespace MedicalSystem_WebProyect.ClientViews
                     medicalData.Insert_To_PatientList(Id, int.Parse(Session["IdUser"].ToString()));
                     Charge_GvData();
                 }
-            }catch(Exception ex) { throw ex; }
+            }
+            catch (Exception ex) { Session.Add("Error", ex.ToString()); }
         }
     }
 }

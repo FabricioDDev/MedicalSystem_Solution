@@ -16,11 +16,12 @@ namespace MedicalSystem_WebProyect.ClientViews
             Helper helper = new Helper();
             MedicalData medicalData = new MedicalData();
             Medical medical;
-            if (Session["IdUser"] != null)
+            if (Session["IdUser"] != null && Session["Error"] == null)
             {
                 medical = helper.SearchUser(int.Parse(Session["IdUser"].ToString()), medicalData.List());
                 LkbUserConfig.Text = medical.UserName;
             }
+            else Response.Redirect("../FrmError.aspx", false);
         }
         protected void BtnExit_Click(object sender, EventArgs e)
         {

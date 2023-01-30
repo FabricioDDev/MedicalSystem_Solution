@@ -21,7 +21,9 @@ namespace MedicalSystem_WebProyect.ClientViews
                 Helper helper = new Helper();
                 user = helper.SearchUser(int.Parse(Session["IdUser"].ToString()), medicalData.List());
                 if (!IsPostBack) charge_Elements();
-            }catch(Exception ex) { throw ex; }
+                if (Session["Error"] != null) Response.Redirect("../FrmError.aspx");
+            }
+            catch (Exception ex) { Session.Add("Error", ex.ToString()); }
         }
         
         private void charge_Elements()
@@ -48,7 +50,8 @@ namespace MedicalSystem_WebProyect.ClientViews
 
                 medicalData.MedicalUpdateSP(medical);
                 Response.Redirect("FrmClientMain.aspx");
-            }catch(Exception ex ) { throw ex; }
+            }
+            catch (Exception ex) { Session.Add("Error", ex.ToString()); }
         }
 
         protected void BtnCancel_Click(object sender, EventArgs e)

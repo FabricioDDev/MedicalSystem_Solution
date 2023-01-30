@@ -26,7 +26,7 @@ namespace MedicalSystem_WebProyect.ClientViews
                 if (Id != 0) { Session.Add("IdUser", Id); Response.Redirect("FrmClientMain.aspx"); }
                 else TxtEmail_User.Text = "Vuelva a intentarlo";
             }
-            catch(Exception ex) { throw ex; }
+            catch (Exception ex) { Session.Add("Error", ex.ToString()); }
         }
 
         protected void BtnAsAdmin_Click(object sender, EventArgs e)
