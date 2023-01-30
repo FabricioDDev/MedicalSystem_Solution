@@ -28,7 +28,7 @@ namespace MedicalSystem_WebProyect.AdminViews
                 Admin admin = adminData.ListSP().Find(x => x.Email == TxtEmail.Text && x.PropPassword == TxtPass.Text);
 
                 if (admin != null) { Session.Add("Admin", admin); Response.Redirect("FrmAdminMain.aspx", false); }
-                else LblWarning.Text = "The User or Pass is Wrong. Try again!";
+                else{ LblWarning.Text = "The User or Pass is Wrong. Try again!"; LblWarning.Visible = true; }
             }
             catch (Exception ex)
             {
