@@ -23,7 +23,7 @@ namespace MedicalSystem_WebProyect.ClientViews
             try
             {
                 int Id = helper.ValidateUser(TxtEmail_User.Text, TxtPassword.Text, medicalData.List());
-                if (Id != 0) { Session.Add("IdUser", Id); Response.Redirect("FrmClientMain.aspx"); }
+                if (Id != 0) { Session.Add("IdUser", Id); Response.Redirect("FrmClientMain.aspx", false); }
                 else TxtEmail_User.Text = "Vuelva a intentarlo";
             }
             catch (Exception ex) { Session.Add("Error", ex.ToString()); }

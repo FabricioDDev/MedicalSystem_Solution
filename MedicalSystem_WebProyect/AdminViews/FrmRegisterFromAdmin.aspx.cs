@@ -27,6 +27,7 @@ namespace MedicalSystem_WebProyect.AdminViews
         {
             try
             {
+                if (Session["Error"] != null) Response.Redirect("../FrmError.aspx", false);
                 if (Session["Admin"] == null)
                     Response.Redirect("FrmAdminLogin.aspx", false);
                 Content = Request.QueryString["content"] != null ? int.Parse(Request.QueryString["content"]) : 0;
@@ -39,7 +40,10 @@ namespace MedicalSystem_WebProyect.AdminViews
                     ChargeControlls();
                 }
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                Session.Add("../FrmError.aspx", ex.ToString());
+            }
         }
         private void user_Controlls_Charge()
         {
@@ -131,7 +135,10 @@ namespace MedicalSystem_WebProyect.AdminViews
                 }
                 return result;
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         protected void BtnAdd_Click(object sender, EventArgs e)
@@ -169,30 +176,40 @@ namespace MedicalSystem_WebProyect.AdminViews
                 }
                 else { LblWarning.Text = "Los datos ingresados son incorrectos. intentelo de nuevo."; }
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex)
+            {
+                Session.Add("../FrmError.aspx", ex.ToString());
+            }
         }
         private Medical CreateMedicalObject()
         {
             Medical medical = new Medical();
+            try
+            {
                 medical.FullName = TxtFullName.Text;
                 medical.Email = TxtEmail.Text;
                 medical.UserName = TxtUserName.Text;
                 medical.PropPassword = TxtPass.Text;
                 medical.Dni = TxtDni.Text;
                 return medical;
-            
-       }
+            }
+            catch(Exception ex) { throw ex;}
+
+        }
         private Patient CreatePatientObject()
         {
             Patient patient = new Patient();
-            patient.FullName = TxtFullName.Text;
-            patient.Email = TxtEmail.Text;
-            patient.Dni = TxtDni.Text;
-            patient.Address = TxtAddress.Text;
-            patient.years = TxtYears.Text;
-            patient.MedicalPlan = TxtMedicalPlan.Text;
-            patient.PhoneNumber = TxtPhoneNumber.Text;
-            return patient;
+            try
+            {
+                patient.FullName = TxtFullName.Text;
+                patient.Email = TxtEmail.Text;
+                patient.Dni = TxtDni.Text;
+                patient.Address = TxtAddress.Text;
+                patient.years = TxtYears.Text;
+                patient.MedicalPlan = TxtMedicalPlan.Text;
+                patient.PhoneNumber = TxtPhoneNumber.Text;
+                return patient;
+            }catch(Exception ex) { throw ex;}
         }
         protected void BtnCancel_Click(object sender, EventArgs e)
         {

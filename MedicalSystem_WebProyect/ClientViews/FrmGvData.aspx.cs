@@ -25,11 +25,14 @@ namespace MedicalSystem_WebProyect.ClientViews
         //Charge Methods
         protected void Page_Load(object sender, EventArgs e)
         {
-            IdUser = int.Parse(Session["IdUser"].ToString());
-            content = int.Parse(Request.QueryString["content"]);
-            Charge_GvData();
-            if (!IsPostBack) { Charge_DdlCamp(); Charge_DdlPatient(); }
-            if (Session["Error"] != null) Response.Redirect("../FrmError.aspx");
+            try
+            {
+                IdUser = int.Parse(Session["IdUser"].ToString());
+                content = int.Parse(Request.QueryString["content"]);
+                Charge_GvData();
+                if (!IsPostBack) { Charge_DdlCamp(); Charge_DdlPatient(); }
+                if (Session["Error"] != null) Response.Redirect("../FrmError.aspx");
+            }catch(Exception ex) { Session.Add("Error", ex.ToString()); }
         }
         private void Charge_DdlCamp()
         {

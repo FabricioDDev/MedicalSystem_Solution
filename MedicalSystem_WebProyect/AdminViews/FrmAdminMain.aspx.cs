@@ -13,6 +13,7 @@ namespace MedicalSystem_WebProyect.AdminViews
         {
             if (Session["Admin"] == null)
                 Response.Redirect("FrmAdminLogin.aspx", false);
+            if (Session["Error"] != null) Response.Redirect("../FrmError.aspx", false);
         }
 
         protected void BtnDoc_Click(object sender, EventArgs e)

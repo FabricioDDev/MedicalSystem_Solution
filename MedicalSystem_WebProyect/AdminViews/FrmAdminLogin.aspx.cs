@@ -13,7 +13,7 @@ namespace MedicalSystem_WebProyect.AdminViews
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Error"] != null) Response.Redirect("../FrmError.aspx", false);
         }
 
         protected void BtnGo_Click(object sender, EventArgs e)
@@ -30,9 +30,9 @@ namespace MedicalSystem_WebProyect.AdminViews
                 if (admin != null) { Session.Add("Admin", admin); Response.Redirect("FrmAdminMain.aspx", false); }
                 else LblWarning.Text = "The User or Pass is Wrong. Try again!";
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Response.Redirect("FrmError.aspx");
+                Session.Add("../FrmError.aspx", ex.ToString());
             }
             
         }

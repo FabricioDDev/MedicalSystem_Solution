@@ -22,15 +22,17 @@ namespace MedicalSystem_WebProyect.AdminViews
             try
             {
                 if (Session["Admin"] == null) Response.Redirect("FrmAdminLogin.aspx", false);
-
-                Data();
+                if (Session["Error"] != null) Response.Redirect("../FrmError.aspx", false);
 
                 Content = Request.QueryString["content"] != null ? int.Parse(Request.QueryString["content"]) : 0;
-
+                Data();
                 if (Content == 1 && !IsPostBack) { gv_Visibility(medicalList); GV_Charge(medicalList); }
                 else if (Content == 2 && !IsPostBack) { gv_Visibility(patientList); GV_Charge(patientList); }
             }
-            catch (Exception) { Response.Redirect("FrmError.aspx"); }
+            catch (Exception ex)
+            {
+                Session.Add("../FrmError.aspx", ex.ToString());
+            }
         }
         private void Data()
         {
@@ -39,7 +41,10 @@ namespace MedicalSystem_WebProyect.AdminViews
                 if (Content == 1) { medicalData = new MedicalData(); medicalList = medicalData.List(); }
                 else { patientData = new PatientData(); patientList = patientData.PatientList(); }
             }
-            catch (Exception) { Response.Redirect("FrmError.aspx"); }
+            catch (Exception ex)
+            {
+                Session.Add("../FrmError.aspx", ex.ToString());
+            }
         }
         private bool exist_Elements(List<Patient>List)
         {
@@ -68,7 +73,10 @@ namespace MedicalSystem_WebProyect.AdminViews
                 GvData.DataSource = List;
                 GvData.DataBind();
             }
-            catch (Exception) { Response.Redirect("FrmError.aspx"); }
+            catch (Exception ex)
+            {
+                Session.Add("../FrmError.aspx", ex.ToString());
+            }
         }
         private void GV_Charge(List<Patient> List)
         {
@@ -78,7 +86,10 @@ namespace MedicalSystem_WebProyect.AdminViews
                 GvData.DataSource = List;
                 GvData.DataBind();
             }
-            catch (Exception) { Response.Redirect("FrmError.aspx"); }
+            catch (Exception ex)
+            {
+                Session.Add("../FrmError.aspx", ex.ToString());
+            }
         }
         protected void GvData_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -87,7 +98,10 @@ namespace MedicalSystem_WebProyect.AdminViews
                 var Id = GvData.SelectedDataKey.Value.ToString();
                 Response.Redirect("FrmRegisterFromAdmin.aspx?Id=" + Id + "&&content=" + Content);
             }
-            catch (Exception) { Response.Redirect("FrmError.aspx"); }
+            catch (Exception ex)
+            {
+                Session.Add("../FrmError.aspx", ex.ToString());
+            }
         }
 
         protected void TxtFastFilter_TextChanged(object sender, EventArgs e)
@@ -102,7 +116,10 @@ namespace MedicalSystem_WebProyect.AdminViews
                 if (Content == 1) GV_Charge(helper.FastFilter(TxtFastFilter.Text, medicalData.List()));
                 else GV_Charge(helper.FastFilter(TxtFastFilter.Text, patientData.PatientList()));
             }
-            catch (Exception) { Response.Redirect("FrmError.aspx"); }
+            catch (Exception ex)
+            {
+                Session.Add("../FrmError.aspx", ex.ToString());
+            }
         }
 
         protected void BtnExit_Click(object sender, EventArgs e)
@@ -123,7 +140,10 @@ namespace MedicalSystem_WebProyect.AdminViews
                 if (Content == 1) { medicalData.MedicalDeleteSP(Id); Data(); GV_Charge(medicalList); gv_Visibility(medicalList); }
                 else if (Content == 2) { patientData.PatientDelete(Id); Data(); GV_Charge(patientList); gv_Visibility(patientList); }
             }
-            catch (Exception) { Response.Redirect("FrmError.aspx"); }
+            catch (Exception ex)
+            {
+                Session.Add("../FrmError.aspx", ex.ToString());
+            }
         }
     }
 }
