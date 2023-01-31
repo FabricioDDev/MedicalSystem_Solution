@@ -60,15 +60,6 @@ namespace MedicalSystem_WebProyect.ClientViews
         protected global::System.Web.UI.WebControls.TextBox TxtPassword;
 
         /// <summary>
-        /// Control BtnGo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnGo;
-
-        /// <summary>
         /// Control LblSupport.
         /// </summary>
         /// <remarks>
@@ -76,6 +67,15 @@ namespace MedicalSystem_WebProyect.ClientViews
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblSupport;
+
+        /// <summary>
+        /// Control BtnGo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnGo;
 
         /// <summary>
         /// Control BtnAsAdmin.
