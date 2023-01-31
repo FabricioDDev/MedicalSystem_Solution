@@ -25,6 +25,7 @@ namespace MedicalSystem_WebProyect.AdminViews
                 if (Session["Error"] != null) Response.Redirect("../FrmError.aspx", false);
 
                 Content = Request.QueryString["content"] != null ? int.Parse(Request.QueryString["content"]) : 0;
+                chargeTitle();
                 Data();
                 if (Content == 1 && !IsPostBack) { gv_Visibility(medicalList); GV_Charge(medicalList); }
                 else if (Content == 2 && !IsPostBack) { gv_Visibility(patientList); GV_Charge(patientList); }
@@ -57,12 +58,17 @@ namespace MedicalSystem_WebProyect.AdminViews
         private void gv_Visibility(List<Patient>List)
         {
             if (exist_Elements(List)) { GvData.Visible= true; }
-            else { GvData.Visible= false; LblWarning.Text = "Dont Have Patient Yet"; }
+            else { GvData.Visible= false; LblWarning.Visible = true; LblWarning.Text = "Dont Have Patient Yet"; }
         }
         private void gv_Visibility(List<Medical> List)
         {
             if (exist_Elements(List)) { GvData.Visible = true; }
-            else { GvData.Visible = false; LblWarning.Text = "Dont have Doctors yet"; }
+            else { GvData.Visible = false; LblWarning.Visible = true; LblWarning.Text = "Dont have Doctors yet"; }
+        }
+        private void chargeTitle()
+        {
+            if(Content == 1) { LblTitle.Text = "Doctors"; }
+            else { LblTitle.Text = "Patients"; }
         }
 
         private void GV_Charge(List<Medical>List)
