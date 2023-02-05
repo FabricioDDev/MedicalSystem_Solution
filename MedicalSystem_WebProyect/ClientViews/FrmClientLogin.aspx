@@ -10,7 +10,7 @@
 </head>
 <body style="background-color:#0d1b2a; color:white;">
     <form id="form1" runat="server">
-        <div class="container d-flex justify-content-center  align-items-center vh-100" >
+        <div class="container d-flex  justify-content-center  align-items-center vh-100" >
             <div class="row">
                 <div class="col-auto">
                     <div class="mb-2">
